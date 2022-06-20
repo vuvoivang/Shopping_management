@@ -1,0 +1,16 @@
+.c-exam-home {
+    text-align: center;
+    margin-top: $exam-space-2x;
+
+    &__btn {
+        padding: $exam-space-1o2;
+        background-color: $exam-color-white;
+        border-color: $exam-color-grey;
+        margin-left: $exam-space;
+    }
+
+    &__message {
+        font-size: $exam-font-h3;
+        margin: $exam-space 0;
+    }
+}

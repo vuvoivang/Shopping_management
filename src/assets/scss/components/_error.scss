@@ -1,0 +1,15 @@
+.c-exam-error {
+    &__title {
+        text-align: center;
+        color: $exam-color-warning;
+    }
+
+    &__message {
+        &-content {
+            margin: $exam-space $exam-space-2x;
+            color: $exam-color-grey-light;
+            border: 1px solid $exam-color-grey;
+            border-radius: $exam-space-1o2;
+        }
+    }
+}

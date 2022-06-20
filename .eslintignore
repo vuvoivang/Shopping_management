@@ -1,0 +1,61 @@
+######################
+# Ignore View and test file
+######################
+/test/**
+/test/test-setup.js
+/test/shim.js
+/test/mocks/FileMock.js
+/config/**/**
+/src/**/*.spec.js
+/src/**/*.spec.ts
+/src/**/*.spec.tsx
+######################
+# Project
+######################
+
+/src/vendor/**
+/config/scripts/**
+.tmp/
+index.html
+/build
+/coverage
+/docs
+/dist/**
+server.js
+demoApp.js
+webpack.pro.js
+webpack.dev.js
+webpack.common.js
+prettier.config.js
+src/components/pages/demo/**
+
+######################
+# Node
+######################
+/node/**
+/node_modules/**
+
+######################
+# Intellij
+######################
+.idea/**
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+.svn

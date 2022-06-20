@@ -1,0 +1,100 @@
+{
+  "parser": "@typescript-eslint/parser",
+  // "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "react", "sonarjs"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:sonarjs/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "globals": {
+    "shallow": true,
+    "mount": true,
+    "render": true,
+    "React": true,
+    "Component": true,
+    "PropTypes": true,
+    "connect": true
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off", // should be warning as default, set off to easy see other issues
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "implicit-arrow-linebreak": "off",
+    "prefer-object-spread": "off",
+    "object-curly-newline": "off",
+    "class-methods-use-this": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 180
+      }
+    ],
+    "no-restricted-globals": ["error", "fdescribe", "fit"],
+    "object-shorthand": ["warn", "always"],
+    "prefer-const": "warn",
+    "prefer-destructuring": "warn",
+    "space-before-function-paren": [
+      "warn",
+      {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "function-paren-newline": "warn",
+    "linebreak-style": "off",
+    "lines-between-class-members": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "react/prefer-stateless-function": "off",
+    "react/require-default-props": "off",
+    "react/no-deprecated": "warn",
+    "react/no-access-state-in-setstate": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
+    "react/static-property-placement": "off",
+    "react/jsx-first-prop-new-line": "off",
+    "react/jsx-indent-props": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".tsx"]
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": "warn",
+    "sonarjs/no-identical-functions": "warn",
+    "security/detect-object-injection": "off",
+    "react/state-in-constructor": ["error", "never"],
+    "operator-linebreak": ["error", "after"]
+  }
+}
