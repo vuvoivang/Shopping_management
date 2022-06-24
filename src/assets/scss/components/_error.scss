@@ -1,15 +1,15 @@
-.c-exam-error {
+.error-boundary {
     &__title {
         text-align: center;
-        color: $exam-color-warning;
+        color: $color-warning;
     }
 
     &__message {
         &-content {
-            margin: $exam-space $exam-space-2x;
-            color: $exam-color-grey-light;
-            border: 1px solid $exam-color-grey;
-            border-radius: $exam-space-1o2;
+            margin: $space $space-2x;
+            color: $color-grey-light;
+            border: 1px solid $color-grey;
+            border-radius: $space-1o2;
         }
     }
 }

@@ -1,12 +1,51 @@
-$exam-space: 1rem;
-$exam-space-1o2: $exam-space * 0.5;
-$exam-space-2x: $exam-space * 2;
+// primary & secondary
+$color-pr-1: #2d0bf0;
+$color-pr-2: #1e62f5;
+$color-pr-3: #18aaf0;
+$color-pr-4: #18c1f0;
 
-$exam-color: #2e2e2e;
-$exam-color-warning: #c83727;
-$exam-color-grey-light: #f5f5f5;
-$exam-color-grey: #dcdcdc;
-$exam-color-white: #ffffff;
+$color-se-1: #0f011f;
+$color-se-2: #2c2435;
+$color-se-3: #363538;
 
-$exam-font-base: 16px;
-$exam-font-h3: $exam-font-base * 2;
+// utility color
+$color-black: #2e2e2e;
+$color-warning: #c83727;
+$color-grey-light: #f5f5f5;
+$color-grey: #dcdcdc;
+$color-white: #ffffff;
+$color-red: rgb(248, 58, 58);
+
+// background color
+$bg-color-hover: #f2fdfd;
+$bg-color-intro: #e1f3f8;
+
+// Font-size
+$fs-sm: 14px;
+$fs-md: 18px;
+$fs-lg: 25px;
+$fs-xl: 32px;
+
+// Font-weight
+$fw-thin: 200;
+$fw-normal: 300;
+$fw-bold-1: 500;
+$fw-bold-2: 700;
+
+$space: 1rem;
+$space-1o2: $space * 0.5;
+$space-2x: $space * 2;
+
+$font-title: 'Roboto', sans-serif;
+$font-text: 'Montserrat', sans-serif;
+
+$font-base: 16px;
+$font-h3: $font-base * 2;
+
+// break points
+$breakpoints: (
+  'extra-large': 1199px,
+  'large': 991px,
+  'medium': 767px,
+  'small': 575px
+);

@@ -1,3 +1,3 @@
-const Loading = () => <div className="c-exam-loading">Loading...</div>;
+const Loading = () => <div className="loading">Loading...</div>;
 
 export default Loading;

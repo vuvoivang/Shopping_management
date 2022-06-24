@@ -23,16 +23,16 @@ class ErrorBoundary extends Component<{}, ErrorBoundaryState> {
   render() {
     if (this.state.error) {
       return (
-        <div className="c-exam-error">
-          <h1 className="c-exam-error__title">Something went wrong!</h1>
-          <div className="c-exam-error__message">
+        <div className="error-boundary">
+          <h1 className="error-boundary__title">Something went wrong!</h1>
+          <div className="error-boundary__message">
             <div>{this.state.error && this.state.error.toString()}</div>
-            <pre ref={this.errorRef} className="c-tsp-error-page__message-content">{this.state.errorInfo.componentStack}</pre>
+            <pre ref={this.errorRef} className="error-boundary__message-content">{this.state.errorInfo.componentStack}</pre>
           </div>
         </div>
       );
     }
-    return this.props.children; // not error
+    return this.props.children;
   }
 }
 

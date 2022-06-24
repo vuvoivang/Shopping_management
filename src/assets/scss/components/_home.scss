@@ -1,16 +1,16 @@
 .c-exam-home {
     text-align: center;
-    margin-top: $exam-space-2x;
+    margin-top: $space-2x;
 
     &__btn {
-        padding: $exam-space-1o2;
-        background-color: $exam-color-white;
-        border-color: $exam-color-grey;
-        margin-left: $exam-space;
+        padding: $space-1o2;
+        background-color: $color-white;
+        border-color: $color-grey;
+        margin-left: $space;
     }
 
     &__message {
-        font-size: $exam-font-h3;
-        margin: $exam-space 0;
+        font-size: $font-h3;
+        margin: $space 0;
     }
 }

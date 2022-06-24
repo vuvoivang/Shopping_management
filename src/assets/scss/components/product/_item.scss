@@ -1,0 +1,6 @@
+.product-item {
+  margin: 20px;
+  &__detail {
+    @include button(#fff, $color-pr-1, #fff, $color-pr-2);
+  }
+}

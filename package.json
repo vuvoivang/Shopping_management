@@ -1,7 +1,7 @@
 {
   "name": "store-project",
   "version": "1.0.0",
-  "description": "React + Typescript + SCSS",
+  "description": "Demo React + Typescript + SCSS with Training Project KMS",
   "main": "index.js",
   "husky": {
     "hooks": {
@@ -32,16 +32,9 @@
     "test:watch": "cross-env NODE_ENV=test jest --config config/jest/jest.config.js --watch",
     "coverage": "jest --coverage --config config/jest/jest.config.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MinhAnhLe94/react-template-example.git"
-  },
-  "author": "MinhAnhLe",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MinhAnhLe94/react-template-example/issues"
-  },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@reduxjs/toolkit": "1.5.1",
     "@types/redux-mock-store": "^1.0.3",
     "axios": "0.21.1",
