@@ -9,7 +9,11 @@ export const AppConstant = {
 };
 
 export const RoutePath = {
-  home: '/home'
+  home: '/home',
+  productList: '/products',
+  productDetail: '/products/:productId',
+  about: '/about'
+
 };
 
 export enum LANGUAGES {

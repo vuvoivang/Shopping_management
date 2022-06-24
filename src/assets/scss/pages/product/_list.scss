@@ -1,0 +1,7 @@
+.product-list {
+  @include flex(column, center, center, wrap);
+  &__list {
+    padding: 60px;
+    @include flex(row, center, center, wrap);
+  }
+}

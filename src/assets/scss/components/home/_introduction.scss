@@ -1,0 +1,99 @@
+.introduction {
+  background-color: $bg-color-intro;
+  padding: 100px 0 100px;
+  color: $color-pr-1;
+  @include flex(row, space-around, center, wrap);
+  &__info {
+    @include flex(column, center, center, wrap);
+    width: 50%;
+  }
+  &__title {
+    @include text($color-pr-1, $fs-xl, $fw-bold-2);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  &__description {
+    color: $color-se-3;
+    text-align: center;
+    margin-bottom: 36px;
+    line-height: 30px;
+    max-width: 700px;
+  }
+  &__btn-demo {
+    @include button($color-se-1, $color-red, $color-se-1, null, 1px);
+    border: none;
+    width: 180px;
+    padding: 20px 0;
+    font-size: $fs-sm;
+    span {
+      @include text(#ffffff, $fs-sm, $fw-normal);
+    }
+    margin: 10px;
+  }
+  &__btn-download {
+    @extend .introduction__btn-demo;
+    background-color: $color-pr-1;
+    border-color: transparent;
+  }
+}
+
+@include responsive('extra-large') {
+  .introduction {
+    padding: 200px 0 400px;
+    &__description {
+      font-size: $fs-lg - 2px;
+      line-height: 40px;
+    }
+    &__btn-demo {
+      padding: 25px 30px;
+      width: 230px;
+      span {
+        font-size: $fs-sm;
+      }
+      margin: 0 10px;
+    }
+  }
+}
+@include responsive('large') {
+  .introduction {
+    padding: 200px 30px 400px;
+  }
+}
+
+@include responsive('medium') {
+  .introduction {
+    &__title {
+      font-size: $fs-lg + 5px;
+    }
+    &__description {
+      font-size: $fs-md;
+      line-height: 40px;
+    }
+    &__btn-demo {
+      span {
+        font-size: $fs-md;
+      }
+      margin: 0 5px;
+    }
+  }
+}
+
+@include responsive('small') {
+  .introduction {
+    &__title {
+      font-size: $fs-md + 2px;
+    }
+    &__description {
+      font-size: $fs-sm;
+      line-height: 30px;
+    }
+    &__btn-demo {
+      max-width: 130px;
+      text-align: center;
+      span {
+        font-size: $fs-sm - 3px;
+      }
+    }
+  }
+}
