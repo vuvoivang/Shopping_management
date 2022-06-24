@@ -10,16 +10,13 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true, // all strict type checking option
+    "strict": false, // all strict type checking option is off
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "preserve", // keep the JSX as part of the output to be further consumed by another transform step
-    "baseUrl": "src",
-    "noImplicitAny": true,
-    "strictNullChecks": true, // check null/undefined
-    "alwaysStrict": true // always use strict
+    "baseUrl": "src"
   },
   "include": [
     "src",

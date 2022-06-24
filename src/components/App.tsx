@@ -32,6 +32,12 @@ class App extends Component {
   render() {
     const HTMLHeadSEOComponent = withHTMLHeadSEO(null)(null);
     const appRoutes = createRoutes(getRoutes());
+    // Provider: use Store to connect
+    // ConnectedIntlProvider: use multiLang
+    // HTMLHeadSEOComponent: add title for SEO
+    // ErrorBoundary: component catch error & render
+    // Suspense: use Lazy load & show loading if pending
+    // Switch: use Router
     return (
       <Provider store={this.store}>
         <ConnectedRouter history={this.history}>
