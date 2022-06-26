@@ -1,4 +1,4 @@
-.introduction {
+.c-introduction {
   background-color: $bg-color-intro;
   padding: 100px 0 100px;
   color: $color-pr-1;
@@ -32,14 +32,14 @@
     margin: 10px;
   }
   &__btn-download {
-    @extend .introduction__btn-demo;
+    @extend .c-introduction__btn-demo;
     background-color: $color-pr-1;
     border-color: transparent;
   }
 }
 
 @include responsive('extra-large') {
-  .introduction {
+  .c-introduction {
     padding: 200px 0 400px;
     &__description {
       font-size: $fs-lg - 2px;
@@ -56,13 +56,13 @@
   }
 }
 @include responsive('large') {
-  .introduction {
+  .c-introduction {
     padding: 200px 30px 400px;
   }
 }
 
 @include responsive('medium') {
-  .introduction {
+  .c-introduction {
     &__title {
       font-size: $fs-lg + 5px;
     }
@@ -80,7 +80,7 @@
 }
 
 @include responsive('small') {
-  .introduction {
+  .c-introduction {
     &__title {
       font-size: $fs-md + 2px;
     }

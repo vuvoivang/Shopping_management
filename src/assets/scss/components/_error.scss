@@ -1,15 +1,15 @@
-.error-boundary {
-    &__title {
-        text-align: center;
-        color: $color-warning;
-    }
+.c-error-boundary {
+  &__title {
+    text-align: center;
+    color: $color-warning;
+  }
 
-    &__message {
-        &-content {
-            margin: $space $space-2x;
-            color: $color-grey-light;
-            border: 1px solid $color-grey;
-            border-radius: $space-1o2;
-        }
+  &__message {
+    &-content {
+      margin: $space $space-2x;
+      color: $color-grey-light;
+      border: 1px solid $color-grey;
+      border-radius: $space-1o2;
     }
+  }
 }
