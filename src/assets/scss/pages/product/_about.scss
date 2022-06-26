@@ -1,0 +1,25 @@
+.c-about {
+  &__text {
+    padding: 25px 0;
+    &--primary {
+      color: $color-pr-1;
+    }
+  }
+  &__desc {
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .c-about {
+    padding: 20px 30px;
+    &__text {
+      font-size: 22px;
+      padding: 20px 0;
+    }
+    &__desc {
+      font-size: 15px;
+    }
+  }
+}

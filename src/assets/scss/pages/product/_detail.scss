@@ -1,0 +1,32 @@
+.c-product-detail {
+  &__info {
+    @include flex(column, space-around, flex-start, wrap);
+    padding: $space;
+    padding-left: $space-2x;
+    h1 {
+      font-size: $fs-xl + 3px;
+    }
+    p {
+      margin: 30px 0;
+      font-size: $fs-sm + 2px;
+      line-height: 2rem;
+    }
+  }
+  &__button-add-to-cart {
+    @include button(#fff, $color-red, #fff, $color-orange);
+    margin-right: $space;
+  }
+  &__button-download-desc {
+    @include button(#fff, $color-pr-1, #fff, $color-pr-2);
+  }
+  &__card-price {
+    margin-bottom: $space-2x;
+    color: $color-red;
+    font-size: $fs-md + 3px;
+    font-weight: $fw-bold-1;
+    text-align: center;
+  }
+}
+.l_wrapper {
+  @include flex(row, space-around, center, wrap);
+}

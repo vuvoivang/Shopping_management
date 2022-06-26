@@ -1,7 +1,12 @@
-.product-list {
+.c-product-list {
   @include flex(column, center, center, wrap);
-  &__list {
-    padding: 60px;
+  padding: 80px;
+  &__row {
+    width: 100%;
     @include flex(row, center, center, wrap);
+  }
+  &__header {
+    color: $color-orange;
+    margin-bottom: $space-2x;
   }
 }
