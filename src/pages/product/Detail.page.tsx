@@ -10,9 +10,9 @@ interface ParamTypes {
 
 const ProductDetail: React.FC = () => {
   const [product, setProduct] = useState<Product>();
-  const { productId } = useParams<ParamTypes>();
+  const productId = '3';
   const fetchData = async id => {
-    let productDetail = await fetchProductDetail(id);
+    const productDetail = await fetchProductDetail(id);
     setProduct(productDetail);
   };
   useEffect(() => {

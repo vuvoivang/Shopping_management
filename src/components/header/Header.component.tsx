@@ -16,8 +16,10 @@ const Header: React.FC = () => {
 
       <nav id="c-header__navigation" className="c-header__navigation" style={{ display: visibleNav ? 'flex' : 'none' }}>
         <ul>
-          <li className="c-header__navigation__item">
-            <NavLink to="/home">Home</NavLink>
+          <li className="header__navigation__item">
+            <NavLink className={({ isActive }) => (isActive ? 'active' : null)} to="/">
+              Home
+            </NavLink>
           </li>
           <li className="c-header__navigation__item">
             <NavLink to="/products">Our products</NavLink>

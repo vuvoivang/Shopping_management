@@ -9,10 +9,10 @@ export const AppConstant = {
 };
 
 export const RoutePath = {
-  home: '/home',
-  productList: '/products',
-  productDetail: '/products/:productId',
-  about: '/about'
+  home: 'home',
+  productList: 'products',
+  productDetail: ':productId',
+  about: 'about'
 
 };
 

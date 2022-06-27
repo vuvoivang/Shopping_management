@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import { Redirect, Switch } from 'react-router-dom';
+import { Navigate, Routes, useRoutes } from 'react-router-dom';
 import { History } from 'history';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
@@ -8,7 +8,6 @@ import { getRoutes } from '../routes';
 import history from '../helpers/history.helper';
 import { configureStore } from '../redux/app.store';
 import { RoutePath } from '../constants/app.constant';
-import { createRoutes } from '../utilities/route/route.utility';
 import withHTMLHeadSEO from '../hocs/with-html-head-seo/withHTMLHeadSEO.hoc';
 import Loading from './loading/Loading.component';
 import ErrorBoundary from './error-boundary/ErrorBoundary.component';
@@ -31,7 +30,7 @@ class App extends Component {
 
   render() {
     const HTMLHeadSEOComponent = withHTMLHeadSEO(null)(null);
-    const appRoutes = createRoutes(getRoutes());
+    const appRoutes = useRoutes(getRoutes());
     // Provider: use Store to connect
     // ConnectedIntlProvider: use multiLang
     // HTMLHeadSEOComponent: add title for SEO
@@ -46,10 +45,10 @@ class App extends Component {
               <HTMLHeadSEOComponent />
               <ErrorBoundary>
                 <Suspense fallback={<Loading />}>
-                  <Switch>
+                  <Routes>
                     {appRoutes}
-                    <Redirect from="/" exact to={RoutePath.home} />
-                  </Switch>
+                    <Navigate to={RoutePath.home} />
+                  </Routes>
                 </Suspense>
               </ErrorBoundary>
             </>
