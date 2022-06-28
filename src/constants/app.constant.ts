@@ -12,8 +12,8 @@ export const RoutePath = {
   home: '/home',
   productList: '/products',
   productDetail: '/products/:productId',
-  about: '/about'
-
+  about: '/about',
+  login: '/login'
 };
 
 export enum LANGUAGES {

@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             <div className="c-header__button-cart-number">3</div>
           </button>
           <button type="button" className="c-header__button-sign-up">
-            <NavLink to="/">Sign in</NavLink>
+            <NavLink to="/login">Sign in</NavLink>
           </button>
           <button type="button" className="c-header__button-sign-in">
             <NavLink to="/">Sign up</NavLink>
