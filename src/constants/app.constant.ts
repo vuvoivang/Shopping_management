@@ -1,7 +1,8 @@
 export const AppConstant = {
   redux: {
     LANGUAGE_STATE: 'languageState',
-    ROUTER_STATE: 'router'
+    ROUTER_STATE: 'router',
+    LOGIN_STATE: 'login'
   },
   storageKey: {
     state: 'state'

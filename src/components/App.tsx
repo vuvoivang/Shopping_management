@@ -4,6 +4,8 @@ import { History } from 'history';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { Store } from '@reduxjs/toolkit';
+import { injectStyle } from 'react-toastify/dist/inject-style';
+import { ToastContainer } from 'react-toastify';
 import { getRoutes } from '../routes';
 import history from '../helpers/history.helper';
 import { configureStore } from '../redux/app.store';
@@ -15,6 +17,9 @@ import ErrorBoundary from './error-boundary/ErrorBoundary.component';
 import '../assets/scss/main.scss';
 import ConnectedIntlProvider from './connected-intl-provider/ConnectedIntlProvider.component';
 
+if (typeof window !== 'undefined') { // call once for use toastify
+  injectStyle();
+}
 class App extends Component {
   history: History;
   store: Store;
@@ -25,7 +30,7 @@ class App extends Component {
   }
 
   initialize = () => {
-    this.history = history;
+    this.history = history; // browser history
     this.store = configureStore(this.history);
   };
 
@@ -51,6 +56,7 @@ class App extends Component {
                     <Redirect from="/" exact to={RoutePath.home} />
                   </Switch>
                 </Suspense>
+                <ToastContainer />
               </ErrorBoundary>
             </>
           </ConnectedIntlProvider>
