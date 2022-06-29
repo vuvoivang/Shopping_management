@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { displayToastify } from '../../utilities/toastify/toastify.utility';
-import { login } from '../../redux/login/login.reducer';
-import { loginSelector } from '../../redux/login';
-import Loading from '../../components/loading/Loading.component';
+import { displayToastify } from 'utilities/toastify/toastify.utility';
+import { security } from 'redux/security/security.action';
+import { securitySelector } from 'redux/security';
+import Loading from 'components/loading/Loading.component';
 
 type ErrorLogin = {
   email: string;
@@ -27,7 +27,8 @@ const Login: React.FC = () => {
     email: '',
     password: ''
   });
-  const loginInfo = useSelector(state => loginSelector.getLoginInfo(state));
+  const [isSubmit, setIsSubmit] = useState(false);
+  const loginInfo = useSelector(state => securitySelector.getLoginInfo(state));
 
   const [formErrors, setFormErrors] = useState<ErrorLogin>();
   const dispatch = useDispatch();
@@ -62,9 +63,6 @@ const Login: React.FC = () => {
     }
     setFormErrors(prevFormErrors => ({ ...prevFormErrors, ...errors }));
   };
-  function isEmptyObj(obj: Record<string, any>) {
-    return Object.keys(obj).length === 0;
-  }
   const validateAll = values => {
     const errors = {} as ErrorLogin;
     // Validate email
@@ -88,31 +86,37 @@ const Login: React.FC = () => {
     }
     return true;
   };
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
     // Handle validation
-    let isValid = await validateAll(formValues);
+    // Not return promise or async function => don't need await
+    const isValid = validateAll(formValues);
     if (!isValid) {
       return;
     }
+    setIsSubmit(true);
     // handleLogin
-    dispatch(login(formValues));
+    dispatch(security(formValues));
   };
   const handleValidation = e => {
     validate(formValues, e.target.name);
   };
+  useEffect(() => {
+    if (isSubmit) {
+      if (loginInfo.user) {
+        displayToastify('Login successfully!', 'success');
+        setTimeout(() => {
+          history.push('/home');
+        }, 1500); // 1500 > 1000 wait to toastify
+      } else if (loginInfo.error.length > 0) {
+        displayToastify('Login failed!', 'failed');
+        setTimeout(() => {
+          history.go(0);
+        }, 1500);
+      }
+    }
+  });
 
-  if (loginInfo.user) {
-    displayToastify('Login successfully!', 'success');
-    setTimeout(() => {
-      history.push('/home');
-    }, 1500); // 1500 > 1000 wait to toastify
-  } else if (loginInfo.error.length > 0) {
-    displayToastify('Login failed!', 'failed');
-    setTimeout(() => {
-      history.go(0);
-    }, 1500);
-  }
   return (
     <>
       <section className="c-login-form" id="section-c-login-form">

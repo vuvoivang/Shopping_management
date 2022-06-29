@@ -2,7 +2,7 @@ export const AppConstant = {
   redux: {
     LANGUAGE_STATE: 'languageState',
     ROUTER_STATE: 'router',
-    LOGIN_STATE: 'login'
+    SECURITY_STATE: 'security'
   },
   storageKey: {
     state: 'state'
@@ -21,3 +21,13 @@ export enum LANGUAGES {
   EN = 'en',
   VI = 'vi'
 }
+
+export const DefaultOptions = {
+  position: 'top-right',
+  autoClose: 1000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined
+};
