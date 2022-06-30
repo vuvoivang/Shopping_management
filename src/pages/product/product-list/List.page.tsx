@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
-import { fetchProductList } from '../../assets/dummy-data/product.data';
-import ProductItem from '../../components/product/ProductItem.component';
+import { fetchProductList } from '../../../assets/dummy-data/product.data';
+import ProductItem from '../../../components/product/ProductItem.component';
 
 const ProductList: React.FC = () => {
   const [productList, setProductList] = useState<Product[]>();

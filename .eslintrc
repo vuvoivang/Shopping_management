@@ -5,7 +5,13 @@
     "ecmaVersion": 6,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "react", "sonarjs"],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "jsx-a11y",
+    "react",
+    "sonarjs"
+  ],
   "env": {
     "browser": true,
     "node": true,
@@ -50,8 +56,15 @@
         "code": 180
       }
     ],
-    "no-restricted-globals": ["error", "fdescribe", "fit"],
-    "object-shorthand": ["warn", "always"],
+    "no-restricted-globals": [
+      "error",
+      "fdescribe",
+      "fit"
+    ],
+    "object-shorthand": [
+      "warn",
+      "always"
+    ],
     "prefer-const": "warn",
     "prefer-destructuring": "warn",
     "space-before-function-paren": [
@@ -88,13 +101,31 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".tsx"]
+        "extensions": [
+          ".js",
+          ".tsx"
+        ]
       }
     ],
     "jsx-a11y/label-has-associated-control": "warn",
     "sonarjs/no-identical-functions": "warn",
     "security/detect-object-injection": "off",
-    "react/state-in-constructor": ["error", "never"],
-    "operator-linebreak": ["error", "after"]
+    "react/state-in-constructor": [
+      "error",
+      "never"
+    ],
+    "operator-linebreak": [
+      "error",
+      "after"
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "state"
+        ]
+      }
+    ]
   }
 }

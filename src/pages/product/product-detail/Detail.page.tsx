@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faDownload } from '@fortawesome/free-solid-svg-icons';
-import { fetchProductDetail } from '../../assets/dummy-data/product.data';
+import { fetchProductDetail } from '../../../assets/dummy-data/product.data';
 
 interface ParamTypes {
   productId: string;

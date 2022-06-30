@@ -21,14 +21,15 @@ module.exports = {
         loose: true
       }
     ],
-    '@babel/plugin-syntax-dynamic-import'
+    '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-proposal-optional-chaining'
   ],
   env: {
     production: {
       presets: ['react-app']
     },
     test: {
-      plugins: ['@babel/plugin-transform-modules-commonjs', 'dynamic-import-node']
+      plugins: ['@babel/plugin-transform-modules-commonjs', 'dynamic-import-node', '@babel/plugin-proposal-optional-chaining']
     }
   }
 };
