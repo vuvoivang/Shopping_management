@@ -1,3 +1,4 @@
+import { Product } from 'models/product.model';
 import { Fragment, useState } from 'react';
 import { fetchProductList } from '../../../assets/dummy-data/product.data';
 import ProductItem from '../../../components/product/ProductItem.component';

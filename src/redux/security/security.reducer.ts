@@ -1,6 +1,7 @@
 import { User } from 'models/user.model';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppConstant } from 'constants/app.constant';
+import { LoginResponse } from 'services/security.service';
 import { security } from './security.action';
 
 export const REDUCER_ID = AppConstant.redux.SECURITY_STATE; // string
@@ -21,6 +22,7 @@ const securitySlice = createSlice({
   name: 'security',
   reducers: {
     logout(state) {
+      // action: security/logout
       state.user = null;
       state.error = '';
     },
@@ -50,7 +52,7 @@ const securitySlice = createSlice({
     builder.addCase(security.fulfilled, (state, action) => {
       // Tắt trạng thái loading, lưu thông tin user vào store
       state.loading = false;
-      state.user = action.payload.data.user;
+      state.user = (action.payload as LoginResponse).data.user;
       state.error = '';
     });
 
