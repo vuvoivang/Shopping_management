@@ -7,6 +7,7 @@ import { AppConstant } from '../constants/app.constant';
 import * as StorageHelper from '../helpers/storage.helper';
 import { languageActions, languageReducer } from './language';
 import { securityActions, securityReducer } from './security';
+import { loadingReducer } from './app/loading.reducer';
 
 const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser'];
 
@@ -19,7 +20,8 @@ const statesToBeStoredInLocalStorage: { stateKey?: (state: any) => void } = {
 const createAppReducer = history => ({
   [AppConstant.redux.ROUTER_STATE]: connectRouter(history),
   [AppConstant.redux.LANGUAGE_STATE]: languageReducer,
-  [AppConstant.redux.SECURITY_STATE]: securityReducer
+  [AppConstant.redux.SECURITY_STATE]: securityReducer,
+  [AppConstant.redux.LOADING_STATE]: loadingReducer
 });
 
 const restoreState = store => {

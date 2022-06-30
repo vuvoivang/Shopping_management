@@ -1,3 +1,4 @@
+import { Product } from 'models/product.model';
 import { NavLink } from 'react-router-dom';
 
 interface ProductItemProps {

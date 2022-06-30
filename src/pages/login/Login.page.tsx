@@ -9,6 +9,7 @@ import { displayToastify } from 'utilities/toastify/toastify.utility';
 import { security } from 'redux/security/security.action';
 import { securitySelector } from 'redux/security';
 import Loading from 'components/loading/Loading.component';
+import { loadingSelector } from 'redux/app';
 
 type ErrorLogin = {
   email: string;
@@ -31,6 +32,7 @@ const Login: React.FC = () => {
   });
   const [isSubmit, setIsSubmit] = useState(false);
   const loginInfo = useSelector(state => securitySelector.getLoginInfo(state));
+  const countLoading = useSelector(state => loadingSelector.getCountLoading(state));
 
   const [formErrors, setFormErrors] = useState<ErrorLogin>();
   const dispatch = useDispatch();
@@ -112,6 +114,7 @@ const Login: React.FC = () => {
         }, 1500); // 1500 > 1000 wait to toastify
       } else if (loginInfo.error.length > 0) {
         displayToastify('Login failed!', 'failed');
+        setIsSubmit(false);
       }
     }
   });
@@ -119,7 +122,7 @@ const Login: React.FC = () => {
   return (
     <>
       <section className="c-login-form" id="section-c-login-form">
-        {loginInfo.loading ? (
+        {countLoading > 0 ? (
           <Loading />
         ) : (
           <div className="c-login-form__form-content">

@@ -1,7 +1,7 @@
 import { User } from 'models/user.model';
 import { users } from '../assets/dummy-data/user.data';
 
-interface LoginResponse {
+export interface LoginResponse {
   status: string;
   data?: {
     user: User;
