@@ -6,18 +6,19 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Store } from '@reduxjs/toolkit';
 import { injectStyle } from 'react-toastify/dist/inject-style';
 import { ToastContainer } from 'react-toastify';
-import { getRoutes } from '../routes';
+import { getAuthRoutes, getNormalRoutes } from '../routes';
 import history from '../helpers/history.helper';
 import { configureStore } from '../redux/app.store';
 import { RoutePath } from '../constants/app.constant';
-import { createRoutes } from '../utilities/route/route.utility';
+import { createAuthRoutes, createNormalRoutes } from '../utilities/route/route.utility';
 import withHTMLHeadSEO from '../hocs/with-html-head-seo/withHTMLHeadSEO.hoc';
 import Loading from './loading/Loading.component';
 import ErrorBoundary from './error-boundary/ErrorBoundary.component';
 import '../assets/scss/main.scss';
 import ConnectedIntlProvider from './connected-intl-provider/ConnectedIntlProvider.component';
 
-if (typeof window !== 'undefined') { // call once for use toastify
+if (typeof window !== 'undefined') {
+  // call once for use toastify
   injectStyle();
 }
 class App extends Component {
@@ -36,7 +37,8 @@ class App extends Component {
 
   render() {
     const HTMLHeadSEOComponent = withHTMLHeadSEO(null)(null);
-    const appRoutes = createRoutes(getRoutes());
+    const appNormalRoutes = createNormalRoutes(getNormalRoutes());
+    const appAuthRoutes = createAuthRoutes(getAuthRoutes());
     // Provider: use Store to connect
     // ConnectedIntlProvider: use multiLang
     // HTMLHeadSEOComponent: add title for SEO
@@ -52,7 +54,8 @@ class App extends Component {
               <ErrorBoundary>
                 <Suspense fallback={<Loading />}>
                   <Switch>
-                    {appRoutes}
+                    {appNormalRoutes}
+                    {appAuthRoutes}
                     <Redirect from="/" exact to={RoutePath.home} />
                   </Switch>
                 </Suspense>

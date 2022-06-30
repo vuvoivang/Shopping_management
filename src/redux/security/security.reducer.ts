@@ -4,13 +4,13 @@ import { security } from './security.action';
 
 export const REDUCER_ID = AppConstant.redux.SECURITY_STATE; // string
 
-interface LoginStateModel {
+interface SecurityStateModel {
   loading: boolean;
   user: User;
   error: string;
 }
 
-export const initialState: LoginStateModel = {
+export const initialState: SecurityStateModel = {
   loading: false,
   user: null,
   error: ''
@@ -23,7 +23,13 @@ const securitySlice = createSlice({
       state.user = null;
       state.error = '';
     },
-    restoreUser(state, action: PayloadAction<LoginStateModel>) {
+    setUser(state, action: PayloadAction<User>) {
+      return {
+        ...state,
+        user: action.payload
+      };
+    },
+    restoreSecurity(state, action: PayloadAction<SecurityStateModel>) {
       return {
         ...state,
         ...action.payload

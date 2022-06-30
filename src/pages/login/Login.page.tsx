@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,6 +23,8 @@ export type LoginInfo = {
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const Login: React.FC = () => {
   const history = useHistory();
+  const location = useLocation();
+  const from = location.state?.from;
   const [formValues, setFormValues] = useState({
     email: '',
     password: ''
@@ -40,7 +42,7 @@ const Login: React.FC = () => {
       [name]: value
     });
   };
-  const validate = (values: LoginInfo, name: string) => {
+  const validateField = (values: LoginInfo, name: string) => {
     const errors = {} as ErrorLogin;
     if (name === 'email') {
       const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -99,20 +101,17 @@ const Login: React.FC = () => {
     dispatch(security(formValues));
   };
   const handleValidation = e => {
-    validate(formValues, e.target.name);
+    validateField(formValues, e.target.name);
   };
   useEffect(() => {
     if (isSubmit) {
       if (loginInfo.user) {
         displayToastify('Login successfully!', 'success');
         setTimeout(() => {
-          history.push('/home');
+          history.push(from || '/home');
         }, 1500); // 1500 > 1000 wait to toastify
       } else if (loginInfo.error.length > 0) {
         displayToastify('Login failed!', 'failed');
-        setTimeout(() => {
-          history.go(0);
-        }, 1500);
       }
     }
   });
@@ -135,7 +134,7 @@ const Login: React.FC = () => {
                   <input
                     id="email"
                     name="email"
-                    type="email"
+                    type="text"
                     className="c-login-form__form-control form-control"
                     value={formValues.email}
                     onChange={handleChange}

@@ -6,12 +6,14 @@ import { pick } from 'lodash';
 import { AppConstant } from '../constants/app.constant';
 import * as StorageHelper from '../helpers/storage.helper';
 import { languageActions, languageReducer } from './language';
-import { securityReducer } from './security';
+import { securityActions, securityReducer } from './security';
 
-const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale'];
+const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser'];
 
 const statesToBeStoredInLocalStorage: { stateKey?: (state: any) => void } = {
-  [AppConstant.redux.LANGUAGE_STATE]: languageActions.restoreLocale
+  // object state is stored, the corresponding key and satet from restore
+  [AppConstant.redux.LANGUAGE_STATE]: languageActions.restoreLocale,
+  [AppConstant.redux.SECURITY_STATE]: securityActions.restoreSecurity
 };
 
 const createAppReducer = history => ({
@@ -35,12 +37,14 @@ const restoreState = store => {
 export const getInitialState = () => ({});
 
 const storageMiddleware = ({ getState }) => next => action => {
+  // middleware storage khi có action đến
   const result = next(action);
   if (actionTypesWhitelist.includes(action.type)) {
+    // Nếu là 1 trong các action được liệt kê, thì lưu state vào localStorage
     const state = pick(getState(), Object.keys(statesToBeStoredInLocalStorage));
     StorageHelper.storeState(state);
   }
-  return result;
+  return result; // hết middleware, chuyển qua next function
 };
 
 export const configureStore = history => {
@@ -55,7 +59,7 @@ export const configureStore = history => {
     devTools: process.env.NODE_ENV === 'development',
     preloadedState: getInitialState()
   });
-  restoreState(store);
+  restoreState(store); // loop qua từng state trong statesToBeStoredInLocalStorage, load data từ localStorage lên lúc đầu
 
   return store;
 };

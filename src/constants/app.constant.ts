@@ -2,10 +2,10 @@ export const AppConstant = {
   redux: {
     LANGUAGE_STATE: 'languageState',
     ROUTER_STATE: 'router',
-    SECURITY_STATE: 'security'
+    SECURITY_STATE: 'securityState'
   },
   storageKey: {
-    state: 'state'
+    state: 'appState'
   }
 };
 
