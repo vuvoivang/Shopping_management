@@ -9,7 +9,8 @@ import { languageActions, languageReducer } from './language';
 import { securityActions, securityReducer } from './security';
 import { loadingReducer } from './app/loading.reducer';
 
-const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser'];
+// list actions will trigger store state
+const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser', 'security/logout'];
 
 const statesToBeStoredInLocalStorage: { stateKey?: (state: any) => void } = {
   // object state is stored, the corresponding key and satet from restore
