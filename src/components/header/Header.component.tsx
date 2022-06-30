@@ -1,11 +1,34 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
+import { Avatar, Menu, MenuItem, Tooltip } from '@material-ui/core';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { securityActions, securitySelector } from 'redux/security';
 import Logo from '../../assets/images/logo.jpg';
 
 const Header: React.FC = () => {
   const [visibleNav, setVisibleNav] = useState(true);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const loginInfo = useSelector(state => securitySelector.getLoginInfo(state));
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const handleOpenUserMenu = event => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+  const handleViewMyAccount = () => {
+    console.log('View my account');
+    handleCloseUserMenu();
+  };
+  const handleLogout = () => {
+    handleCloseUserMenu();
+    dispatch(securityActions.logout());
+    history.go(0);
+  };
+
   return (
     <header className="c-header">
       <div className="c-header__logo">
@@ -32,12 +55,47 @@ const Header: React.FC = () => {
             <FontAwesomeIcon icon={faCartShopping} />
             <div className="c-header__button-cart-number">3</div>
           </button>
-          <button type="button" className="c-header__button-sign-up">
-            <NavLink to="/login">Sign in</NavLink>
-          </button>
-          <button type="button" className="c-header__button-sign-in">
-            <NavLink to="/">Sign up</NavLink>
-          </button>
+          {loginInfo.user ? (
+            <Tooltip title="Tùy chọn">
+              <button type="button" className="c-header__user-option">
+                <Avatar className="c-header__avatar" alt="avatar" onClick={handleOpenUserMenu} src={loginInfo.user.avatar} />
+              </button>
+            </Tooltip>
+          ) : (
+            <>
+              {' '}
+              <button type="button" className="c-header__button-sign-up">
+                <NavLink to="/login">Sign in</NavLink>
+              </button>
+              <button type="button" className="c-header__button-sign-in">
+                <NavLink to="/">Sign up</NavLink>
+              </button>
+            </>
+          )}
+
+          <Menu
+            style={{ marginTop: '45px' }}
+            id="menu-appbar"
+            anchorEl={anchorElUser}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right'
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right'
+            }}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            <MenuItem onClick={handleViewMyAccount}>
+              <p style={{ textAlign: 'center' }}>Tài khoản của tôi</p>
+            </MenuItem>
+            <MenuItem onClick={handleLogout}>
+              <p style={{ textAlign: 'center' }}>Đăng xuất</p>
+            </MenuItem>
+          </Menu>
         </div>
       </nav>
 
