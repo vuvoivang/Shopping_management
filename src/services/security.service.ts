@@ -1,3 +1,4 @@
+import { User } from 'models/user.model';
 import { users } from '../assets/dummy-data/user.data';
 
 interface LoginResponse {

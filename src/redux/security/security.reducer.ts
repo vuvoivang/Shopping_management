@@ -1,3 +1,4 @@
+import { User } from 'models/user.model';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppConstant } from 'constants/app.constant';
 import { security } from './security.action';
