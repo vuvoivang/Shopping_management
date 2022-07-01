@@ -1,4 +1,4 @@
-import { loadingActions } from 'redux/app/loading.reducer';
+import { loadingActions } from 'redux/loading/loading.reducer';
 
 type AsyncActionThunk = (data, payloadCreator) => Promise<unknown> | void;
 

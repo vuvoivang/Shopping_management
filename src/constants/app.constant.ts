@@ -3,7 +3,8 @@ export const AppConstant = {
     LANGUAGE_STATE: 'languageState',
     ROUTER_STATE: 'router',
     SECURITY_STATE: 'securityState',
-    LOADING_STATE: 'loadingState'
+    LOADING_STATE: 'loadingState',
+    CART_STATE: 'cartState'
   },
   storageKey: {
     state: 'appState'
@@ -15,7 +16,8 @@ export const RoutePath = {
   productList: '/products',
   productDetail: '/products/:productId',
   about: '/about',
-  login: '/login'
+  login: '/login',
+  cart: '/cart'
 };
 
 export enum LANGUAGES {

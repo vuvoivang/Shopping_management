@@ -9,7 +9,7 @@ import { displayToastify } from 'utilities/toastify/toastify.utility';
 import { security } from 'redux/security/security.action';
 import { securitySelector } from 'redux/security';
 import Loading from 'components/loading/Loading.component';
-import { loadingSelector } from 'redux/app';
+import { loadingSelector } from 'redux/loading';
 
 type ErrorLogin = {
   email: string;
