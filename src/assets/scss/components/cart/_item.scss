@@ -65,6 +65,7 @@
     }
     &__btn-remove {
       @include button(#fff, $color-red, #fff, $color-fresh-red);
+      padding: 10px;
       margin-right: 10px;
     }
   }
