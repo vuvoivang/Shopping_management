@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AppConstant } from 'constants/app.constant';
 
-interface LoadingStateModel {
+interface GlobalStateModel {
   loadingActions: number;
 }
 
-export const initialState: LoadingStateModel = {
+export const initialState: GlobalStateModel = {
   loadingActions: 0
 };
 
-export const REDUCER_ID = AppConstant.redux.LOADING_STATE; // string
+export const REDUCER_ID = AppConstant.redux.GLOBAL_STATE; // string
 
-const loadingSlice = createSlice({
-  name: 'loading',
+const globalSlice = createSlice({
+  name: 'global',
   reducers: {
     startLoading(state) {
       state.loadingActions += 1;
@@ -24,5 +24,5 @@ const loadingSlice = createSlice({
   initialState
 });
 
-export const loadingReducer = loadingSlice.reducer;
-export const loadingActions = loadingSlice.actions;
+export const globalReducer = globalSlice.reducer;
+export const globalActions = globalSlice.actions;

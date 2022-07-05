@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { displayToastify } from 'utilities/toastify/toastify.utility';
 import { security } from 'redux/security/security.action';
 import { securitySelector } from 'redux/security';
-import Loading from 'components/loading/Loading.component';
-import { loadingSelector } from 'redux/app';
 
 type ErrorLogin = {
   email: string;
@@ -31,9 +28,7 @@ const Login: React.FC = () => {
     password: ''
   });
   const [isSubmit, setIsSubmit] = useState(false);
-  const loginInfo = useSelector(state => securitySelector.getLoginInfo(state));
-  const countLoading = useSelector(state => loadingSelector.getCountLoading(state));
-
+  const loginInfo = useSelector(securitySelector.getLoginInfo);
   const [formErrors, setFormErrors] = useState<ErrorLogin>();
   const dispatch = useDispatch();
   // sự kiện thay đổi giá trị của các trường đăng nhập
@@ -48,7 +43,6 @@ const Login: React.FC = () => {
     const errors = {} as ErrorLogin;
     if (name === 'email') {
       const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
       if (!values.email) {
         errors.email = 'Email is required';
       } else if (!regexEmail.test(values.email)) {
@@ -118,70 +112,66 @@ const Login: React.FC = () => {
       }
     }
   });
-
   return (
     <>
       <section className="c-login-form" id="section-c-login-form">
-        {countLoading > 0 ? (
-          <Loading />
-        ) : (
-          <div className="c-login-form__form-content">
-            <form action="" method="POST" className="c-login-form__form" id="form-login" onSubmit={handleSubmit}>
-              <div className="c-login-form__slogan">LOGIN FORM</div>
+        <div className="c-login-form__form-content">
+          <form action="" method="POST" className="c-login-form__form" id="form-login" onSubmit={handleSubmit}>
+            <div className="c-login-form__slogan">LOGIN FORM</div>
 
-              <div className="c-login-form__form-field">
-                <div className="c-login-form__form-group form-group">
-                  <label htmlFor="email" className="c-login-form__form-label form-label">
-                    <FontAwesomeIcon icon={faEnvelope} size="lg" style={{ marginRight: 7 }} /> Email *
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="text"
-                    className="c-login-form__form-control form-control"
-                    value={formValues.email}
-                    onChange={handleChange}
-                    onBlur={handleValidation}
-                  />
+            <div className="c-login-form__form-field">
+              <div className="c-login-form__form-group form-group">
+                <label htmlFor="email" className="c-login-form__form-label form-label">
+                  <FontAwesomeIcon className="c-login-form__icon" icon={faEnvelope} size="lg" /> Email *
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="text"
+                  className="c-login-form__form-control form-control"
+                  autoComplete="username"
+                  value={formValues.email}
+                  onChange={handleChange}
+                  onBlur={handleValidation}
+                />
 
-                  <span className="c-login-form__form-message form-message">{formErrors?.email}</span>
-                </div>
-                <div className="c-login-form__form-group form-group">
-                  <label htmlFor="password" className="c-login-form__form-label form-label">
-                    <FontAwesomeIcon icon={faLock} size="lg" style={{ marginRight: 7 }} /> Password *
-                  </label>
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    className="c-login-form__form-control form-control"
-                    autoComplete="current-password"
-                    value={formValues.password}
-                    onChange={handleChange}
-                    onBlur={handleValidation}
-                  />
-
-                  <span className="c-login-form__form-message form-message">{formErrors?.password}</span>
-                </div>
-                <button type="submit" className="btn c-login-form__form-submit form-submit">
-                  <span>Login</span>
-                </button>
-                <Grid container>
-                  <Grid item xs>
-                    <Link to="/home" style={{ textDecoration: 'none', color: 'blue' }}>
-                      Quên mật khẩu ?
-                    </Link>
-                  </Grid>
-                  <Grid item>
-                    <Link to="/register" style={{ textDecoration: 'none', color: '#f44336' }}>
-                      Chưa có tài khoản? Đăng ký ngay!!!
-                    </Link>
-                  </Grid>
-                </Grid>
+                <span className="c-login-form__form-message form-message">{formErrors?.email}</span>
               </div>
-            </form>
-          </div>
-        )}
+              <div className="c-login-form__form-group form-group">
+                <label htmlFor="password" className="c-login-form__form-label form-label">
+                  <FontAwesomeIcon className="c-login-form__icon" icon={faLock} size="lg" /> Password *
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  className="c-login-form__form-control form-control"
+                  value={formValues.password}
+                  onChange={handleChange}
+                  onBlur={handleValidation}
+                  autoComplete="current-password"
+                />
+
+                <span className="c-login-form__form-message form-message">{formErrors?.password}</span>
+              </div>
+              <button type="submit" className="btn c-login-form__form-submit form-submit">
+                <span>Login</span>
+              </button>
+              <Grid container>
+                <Grid item xs>
+                  <Link className="u-text-decoration--none u-color--blue" to="/home">
+                    Quên mật khẩu ?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link className="u-text-decoration--none u-color--red" to="/register">
+                    Chưa có tài khoản? Đăng ký ngay!!!
+                  </Link>
+                </Grid>
+              </Grid>
+            </div>
+          </form>
+        </div>
       </section>
     </>
   );

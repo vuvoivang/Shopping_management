@@ -1,8 +1,18 @@
 .c-product-detail {
+  &__card-item{
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 200px;
+  }
   &__info {
     @include flex(column, space-around, flex-start, wrap);
     padding: $space;
     padding-left: $space-2x;
+    max-width:600px;
     h1 {
       font-size: $fs-xl + 3px;
     }
@@ -15,6 +25,8 @@
   &__button-add-to-cart {
     @include button(#fff, $color-red, #fff, $color-orange);
     margin-right: $space;
+    padding: 15px 30px;
+    margin-right: 7px;
   }
   &__button-download-desc {
     @include button(#fff, $color-pr-1, #fff, $color-pr-2);

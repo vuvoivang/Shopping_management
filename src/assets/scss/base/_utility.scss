@@ -1,0 +1,31 @@
+.u-text-align--center {
+    text-align: center;
+}
+.u-border-radius {
+    &--medium{
+        border-radius: 30px;
+    }
+    &--round{
+        border-radius: 50%;
+    }
+}
+.u-object-fit--contain{
+    object-fit: contain;
+}
+.u-color{
+    &--blue{
+        color: blue;
+    }
+    &--red{
+        color: $color-red;
+    }
+}
+.u-text-decoration--none{
+    text-decoration: none;
+}
+.u-font-weight{
+    &--mid-bold{
+        font-weight: $fw-bold-1x1o2;
+    }
+    
+}
