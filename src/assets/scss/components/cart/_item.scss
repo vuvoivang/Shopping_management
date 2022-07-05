@@ -57,6 +57,10 @@
     }
     &__btn-decrease {
       @extend .c-cart-item__btn-increase;
+      &[disabled] {
+        color: $color-grey;
+        cursor: not-allowed;
+      }
     }
     &__quantity{
         margin: 0 10px;

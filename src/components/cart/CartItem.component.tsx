@@ -30,7 +30,7 @@ const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
       </div>
       <div className="c-cart-item__price">{`${price}.000 Đ`}</div>
       <div className="c-cart-item__action">
-        <button type="button" className="c-cart-item__btn-decrease" onClick={decreaseQuantity}>
+        <button type="button" className="c-cart-item__btn-decrease" disabled={quantity < 2} onClick={decreaseQuantity}>
           <FontAwesomeIcon icon={faMinusCircle} size="lg" />
         </button>
         <span className="c-cart-item__quantity">{quantity}</span>
