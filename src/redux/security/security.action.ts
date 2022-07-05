@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useLoading } from 'hooks/useLoading';
+import { useLoading } from 'hooks/useLoading/useLoading';
 import { LoginInfo } from '../../pages/login/Login.page';
 import { loginService } from '../../services/security.service';
 

@@ -99,9 +99,19 @@
     border: 1px;
     cursor: pointer;
   }
+  &__welcome{
+    margin-left: 15px;
+  }
+  &__user-name{
+    color: $color-pr-1;
+    font-weight: $fw-bold-2;
+  }
   &__avatar {
     width: 50px;
     height: 50px;
+  }
+  &__user-menu{
+    margin-top: 60px;
   }
 }
 @include responsive('large') {

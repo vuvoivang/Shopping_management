@@ -7,7 +7,7 @@ import { AppConstant } from '../constants/app.constant';
 import * as StorageHelper from '../helpers/storage.helper';
 import { languageActions, languageReducer } from './language';
 import { securityActions, securityReducer } from './security';
-import { loadingReducer } from './app/loading.reducer';
+import { globalReducer } from './global/global.reducer';
 
 // list actions will trigger store state
 const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser', 'security/logout'];
@@ -22,7 +22,7 @@ const createAppReducer = history => ({
   [AppConstant.redux.ROUTER_STATE]: connectRouter(history),
   [AppConstant.redux.LANGUAGE_STATE]: languageReducer,
   [AppConstant.redux.SECURITY_STATE]: securityReducer,
-  [AppConstant.redux.LOADING_STATE]: loadingReducer
+  [AppConstant.redux.GLOBAL_STATE]: globalReducer
 });
 
 const restoreState = store => {

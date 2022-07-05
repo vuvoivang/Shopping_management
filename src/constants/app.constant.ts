@@ -3,7 +3,7 @@ export const AppConstant = {
     LANGUAGE_STATE: 'languageState',
     ROUTER_STATE: 'router',
     SECURITY_STATE: 'securityState',
-    LOADING_STATE: 'loadingState'
+    GLOBAL_STATE: 'globalState'
   },
   storageKey: {
     state: 'appState'
@@ -17,6 +17,21 @@ export const RoutePath = {
   about: '/about',
   login: '/login'
 };
+
+export const RoutePathNavbar = [
+  {
+    label: 'Home',
+    href: '/home'
+  },
+  {
+    label: 'Our products',
+    href: '/products'
+  },
+  {
+    label: 'About',
+    href: '/about'
+  }
+];
 
 export enum LANGUAGES {
   EN = 'en',

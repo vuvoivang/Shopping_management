@@ -9,7 +9,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product: { id, name, price, i
   <div className="c-product-item">
     <div className="c-product-item__card-item">
       <div>
-        <img className="c-product-item__card-image" style={{ objectFit: 'contain' }} src={image} alt="Smart watch" height="250" />
+        <img className="c-product-item__card-image u-object-fit--contain" src={image} alt="Smart watch" height="250" />
         <div className="c-product-item__card-content">
           <div className="c-product-item__card-info">
             <h4>{name}</h4>
