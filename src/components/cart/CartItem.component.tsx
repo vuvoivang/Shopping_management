@@ -1,21 +1,25 @@
 import { ProductInCart } from 'models/cart.model';
 import { faPlusCircle, faMinusCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
+import { cartActions } from 'redux/cart';
 
 interface CartItemProps {
-  cart: ProductInCart;
+  cartItem: ProductInCart;
   key: number;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ cart: { name, price, image, detail, quantity } }: CartItemProps) => {
+const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
+  const dispatch = useDispatch();
+  const { id, name, price, image, detail, quantity } = props.cartItem;
   const increaseQuantity = () => {
-    console.log('increaseQuantity');
+    dispatch(cartActions.increaseNumber(id));
   };
   const decreaseQuantity = () => {
-    console.log('decreaseQuantity');
+    dispatch(cartActions.decreaseNumber(id));
   };
   const removeFromCart = () => {
-    console.log('removeFromCart');
+    dispatch(cartActions.deleteFromCart(props.cartItem));
   };
   return (
     <div className="c-cart-item">
@@ -26,11 +30,11 @@ const CartItem: React.FC<CartItemProps> = ({ cart: { name, price, image, detail,
       </div>
       <div className="c-cart-item__price">{`${price}.000 Đ`}</div>
       <div className="c-cart-item__action">
-        <button type="button" className="c-cart-item__btn-decrease" onClick={increaseQuantity}>
+        <button type="button" className="c-cart-item__btn-decrease" onClick={decreaseQuantity}>
           <FontAwesomeIcon icon={faMinusCircle} size="lg" />
         </button>
         <span className="c-cart-item__quantity">{quantity}</span>
-        <button type="button" className="c-cart-item__btn-increase" onClick={decreaseQuantity}>
+        <button type="button" className="c-cart-item__btn-increase" onClick={increaseQuantity}>
           <FontAwesomeIcon icon={faPlusCircle} size="lg" />
         </button>
       </div>

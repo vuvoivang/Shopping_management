@@ -11,7 +11,17 @@ import { globalReducer } from './global/global.reducer';
 import { cartActions, cartReducer } from './cart';
 
 // list actions will trigger store state
-const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser', 'security/logout', 'cart/addToCart', 'cart/deleteFromCart'];
+const actionTypesWhitelist = [
+  '@@router/LOCATION_CHANGE',
+  'language/setLocale',
+  'security/setUser',
+  'security/logout',
+  'cart/addToCart',
+  'cart/deleteFromCart',
+  'cart/increaseNumber',
+  'cart/decreaseNumber',
+  'cart/checkout'
+];
 
 const statesToBeStoredInLocalStorage: { stateKey?: (state: any) => void } = {
   // object state is stored, the corresponding key and satet from restore

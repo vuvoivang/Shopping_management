@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { Product } from 'models/product.model';
+import { cartActions } from 'redux/cart';
+import { useDispatch } from 'react-redux';
+import { displayToastify } from 'utilities/toastify/toastify.utility';
 import { fetchProductDetail } from '../../../assets/dummy-data/product.data';
 
 interface ParamTypes {
@@ -12,6 +15,7 @@ interface ParamTypes {
 const ProductDetail: React.FC = () => {
   const [product, setProduct] = useState<Product>();
   const { productId } = useParams<ParamTypes>();
+  const dispatch = useDispatch();
   const fetchData = async id => {
     const productDetail = await fetchProductDetail(id);
     setProduct(productDetail);
@@ -29,6 +33,10 @@ const ProductDetail: React.FC = () => {
       }
     }
   }, []);
+  const addToCart = () => {
+    dispatch(cartActions.addToCart(product));
+    displayToastify('Add to cart successfully!!!', 'success');
+  };
   return (
     <div className="c-product-detail">
       {product && (
@@ -42,7 +50,7 @@ const ProductDetail: React.FC = () => {
               <p>{product.detail}</p>
               <div className="c-product-detail__card-price">{`${product.price}.000 VND`}</div>
               <div className="btn-group">
-                <button type="button" className="c-product-detail__button-add-to-cart">
+                <button type="button" className="c-product-detail__button-add-to-cart" onClick={addToCart}>
                   <FontAwesomeIcon icon={faPlusCircle} size="lg" /> Add to cart
                 </button>
 

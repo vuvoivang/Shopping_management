@@ -45,7 +45,7 @@
     @include flex(row, center, center, wrap);
     a.active{
       .c-header__button-cart{
-        background-color:rgb(6, 243, 14);
+        background-color:#71f575;
         border-radius: 20px;
       }
     }

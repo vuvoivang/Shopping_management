@@ -6,12 +6,14 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { securityActions, securitySelector } from 'redux/security';
 import { RoutePathNavbar } from 'constants/app.constant';
+import { cartSelector } from 'redux/cart';
 import Logo from '../../assets/images/logo.jpg';
 
 const Header: React.FC = () => {
   const [visibleNav, setVisibleNav] = useState(true);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const loginInfo = useSelector(securitySelector.getLoginInfo);
+  const cart = useSelector(cartSelector.getCart);
   const dispatch = useDispatch();
   const history = useHistory();
   const handleOpenUserMenu = event => {
@@ -61,7 +63,7 @@ const Header: React.FC = () => {
             {' '}
             <button type="button" className="c-header__button-cart">
               <FontAwesomeIcon icon={faCartShopping} />
-              <span className="c-header__button-cart-number">3</span>
+              <span className="c-header__button-cart-number">{cart.listProduct.length}</span>
             </button>
           </NavLink>
 

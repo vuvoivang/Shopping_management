@@ -11,14 +11,24 @@
     color: $color-orange;
     margin-bottom: $space-1x1o2*2;
   }
-  &__action{
+  &__footer{
     width:80%;
-    @include flex(row,flex-end, flex-end);
+    @include flex(row,space-between,center, nowrap);
     margin-top: $space-1x1o2*2;
-    margin-right:$space-2x;
+    padding:0 $space;
   }
   &__btn-checkout{
     @include button(#fff, $color-red, #fff, $color-orange);
     padding: 15px 30px;
+    font-size: $fs-sm + 3px;
+    line-height:1.5rem;
+    text-transform: uppercase;
+  }
+  &__total-amount{
+    font-size: $fs-md + 3px;
+    &--highlighted{
+      color: $color-red;
+      font-weight: $fw-bold-2;
+    }
   }
 }

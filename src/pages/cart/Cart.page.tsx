@@ -1,63 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { cartSelector } from 'redux/cart';
+import { cartActions, cartSelector } from 'redux/cart';
 import CartItem from 'components/cart/CartItem.component';
+import { ProductInCart } from 'models/cart.model';
+import { displayToastify } from 'utilities/toastify/toastify.utility';
 
-class Cart extends Component {
-  productsInCart = [
-    {
-      id: 4,
-      name: 'Watch 3',
-      detail: 'Apple Watch is the ultimate device for a healthy life. Available in the ultimate device for a healthy life',
-      price: 109,
-      image: 'https://images.timex.com/image/upload/q_auto,f_auto/e_sharpen:120,c_fill/w_900,c_fit/Catalogs/timex-master-catalog/images/TW2P75600.png',
-      quantity: 1
-    },
-    {
-      id: 2,
-      name: 'Watch 3',
-      detail: 'Apple Watch is the ultimate device for a healthy life. Available in the ultimate device for a healthy life',
-      price: 109,
-      image: 'https://images.timex.com/image/upload/q_auto,f_auto/e_sharpen:120,c_fill/w_900,c_fit/Catalogs/timex-master-catalog/images/TW2P75600.png',
-      quantity: 3
-    },
-    {
-      id: 3,
-      name: 'Watch 2',
-      detail: 'Apple Watch is the ultimate device for a healthy life. ',
-      price: 99,
-      image: 'https://cf.shopee.vn/file/9b954a57f4a0c21922ff07dcb709f9d2',
-      quantity: 2
-    },
-  ];
+type CartProps = {
+  cart: { listProduct: ProductInCart[]; totalAmount: number };
+  handleCheckout: () => void;
+};
+class Cart extends Component<CartProps> {
   constructor(props) {
     super(props);
-    this.initialize();
+    console.log('constructor');
   }
   componentDidMount() {
-    // this.props.dispatch(action())
     console.log('componentDidMount');
   }
   componentDidUpdate() {
     console.log('componentDidUpdate');
   }
-  initialize = () => {
-    console.log('initialize in cons');
-  };
   render() {
     return (
       <div className="c-cart">
-        <h1 className="c-cart__header">Your Cart</h1>
-        <div className="c-cart__row">
-          {this.productsInCart.map(product => (
-            <CartItem key={product.id} cart={product} />
-          ))}
-        </div>
-        <div className="c-cart__action">
-          <button type="button" className="c-cart__btn-checkout">
-            Thanh Toán
-          </button>
-        </div>
+        {this.props.cart.listProduct.length > 0 ? (
+          <>
+            <h1 className="c-cart__header">Your Cart</h1>
+            <div className="c-cart__row">
+              {this.props.cart.listProduct.map(product => (
+                <CartItem key={product.id} cartItem={product} />
+              ))}
+            </div>
+            <div className="c-cart__footer">
+              <div className="c-cart__total-amount">
+                Tổng tiền thanh toán: <span className="c-cart__total-amount--highlighted">{`${this.props.cart.totalAmount}.000 Đ`}</span>
+              </div>
+              <button type="button" className="c-cart__btn-checkout" onClick={this.props.handleCheckout}>
+                Check out
+              </button>
+            </div>
+          </>
+        ) : (
+          <h1 className="c-cart__header">Your cart is empty</h1>
+        )}
       </div>
     );
   }
@@ -66,5 +51,11 @@ class Cart extends Component {
 const mapStateToProps = state => ({
   cart: cartSelector.getCart(state)
 });
+const mapDispatchToProps = dispatch => ({
+  handleCheckout: () => {
+    displayToastify('Check out successfully, please track the shipping process !!', 'success', { position: 'top-center' });
+    dispatch(cartActions.checkout());
+  }
+});
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
