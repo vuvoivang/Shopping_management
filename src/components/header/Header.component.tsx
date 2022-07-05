@@ -63,7 +63,7 @@ const Header: React.FC = () => {
           </button>
           {loginInfo.user ? (
             <>
-              <p className="c-header__welcome">Hi <span className="c-header__user-name">{loginInfo.user.firstName}</span></p>
+              <p className="c-header__welcome">Hi <span className="c-header__user-name">{loginInfo.user.firstName}!</span></p>
               <Tooltip title="Tùy chọn">
                 <button type="button" className="c-header__user-option">
                   <Avatar className="c-header__avatar" alt="avatar" onClick={handleOpenUserMenu} src={loginInfo.user.avatar} />
