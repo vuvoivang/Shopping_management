@@ -26,10 +26,11 @@
     @include button(#fff, $color-red, #fff, $color-orange);
     margin-right: $space;
     padding: 15px 30px;
-    margin-right: 7px;
+    margin-right: $space;
   }
   &__button-download-desc {
     @include button(#fff, $color-pr-1, #fff, $color-pr-2);
+    padding: 15px 30px;
   }
   &__card-price {
     margin-bottom: $space-2x;

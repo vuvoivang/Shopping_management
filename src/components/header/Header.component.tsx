@@ -57,10 +57,14 @@ const Header: React.FC = () => {
         </ul>
 
         <div className="c-header__button-group">
-          <button type="button" className="c-header__button-cart">
-            <FontAwesomeIcon icon={faCartShopping} />
-            <div className="c-header__button-cart-number">3</div>
-          </button>
+          <NavLink to="/cart">
+            {' '}
+            <button type="button" className="c-header__button-cart">
+              <FontAwesomeIcon icon={faCartShopping} />
+              <span className="c-header__button-cart-number">3</span>
+            </button>
+          </NavLink>
+
           {loginInfo.user ? (
             <>
               <p className="c-header__welcome">Hi <span className="c-header__user-name">{loginInfo.user.firstName}!</span></p>

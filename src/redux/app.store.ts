@@ -8,21 +8,24 @@ import * as StorageHelper from '../helpers/storage.helper';
 import { languageActions, languageReducer } from './language';
 import { securityActions, securityReducer } from './security';
 import { globalReducer } from './global/global.reducer';
+import { cartActions, cartReducer } from './cart';
 
 // list actions will trigger store state
-const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser', 'security/logout'];
+const actionTypesWhitelist = ['@@router/LOCATION_CHANGE', 'language/setLocale', 'security/setUser', 'security/logout', 'cart/addToCart', 'cart/deleteFromCart'];
 
 const statesToBeStoredInLocalStorage: { stateKey?: (state: any) => void } = {
   // object state is stored, the corresponding key and satet from restore
   [AppConstant.redux.LANGUAGE_STATE]: languageActions.restoreLocale,
-  [AppConstant.redux.SECURITY_STATE]: securityActions.restoreSecurity
+  [AppConstant.redux.SECURITY_STATE]: securityActions.restoreSecurity,
+  [AppConstant.redux.CART_STATE]: cartActions.restoreCart
 };
 
 const createAppReducer = history => ({
   [AppConstant.redux.ROUTER_STATE]: connectRouter(history),
   [AppConstant.redux.LANGUAGE_STATE]: languageReducer,
   [AppConstant.redux.SECURITY_STATE]: securityReducer,
-  [AppConstant.redux.GLOBAL_STATE]: globalReducer
+  [AppConstant.redux.GLOBAL_STATE]: globalReducer,
+  [AppConstant.redux.CART_STATE]: cartReducer
 });
 
 const restoreState = store => {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { Product } from 'models/product.model';
@@ -42,11 +42,10 @@ const ProductDetail: React.FC = () => {
               <p>{product.detail}</p>
               <div className="c-product-detail__card-price">{`${product.price}.000 VND`}</div>
               <div className="btn-group">
-                <Link to="/products">
-                  <button type="button" className="c-product-detail__button-add-to-cart">
-                    <FontAwesomeIcon icon={faPlusCircle} size="lg" /> Add to cart
-                  </button>
-                </Link>
+                <button type="button" className="c-product-detail__button-add-to-cart">
+                  <FontAwesomeIcon icon={faPlusCircle} size="lg" /> Add to cart
+                </button>
+
                 <button type="button" className="c-product-detail__button-download-desc">
                   <a href={Number(product.id) % 2 === 0 ? '/files/EvenProduct.xlsx' : '/files/OddProduct.xlsx'} target="_self">
                     <FontAwesomeIcon icon={faDownload} size="lg" /> Down description file

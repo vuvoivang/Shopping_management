@@ -1,0 +1,24 @@
+.c-cart {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 50px 0;
+  @include flex(column, center, center, wrap);
+  &__row {
+    width: 100%;
+    @include flex(row, center, center, wrap);
+  }
+  &__header {
+    color: $color-orange;
+    margin-bottom: $space-1x1o2*2;
+  }
+  &__action{
+    width:80%;
+    @include flex(row,flex-end, flex-end);
+    margin-top: $space-1x1o2*2;
+    margin-right:$space-2x;
+  }
+  &__btn-checkout{
+    @include button(#fff, $color-red, #fff, $color-orange);
+    padding: 15px 30px;
+  }
+}

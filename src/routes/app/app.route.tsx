@@ -30,6 +30,11 @@ const getAuthRoutes = (): RouteModel[] => [
     path: RoutePath.productDetail,
     component: lazy(() => import('../../pages/product/product-detail/Detail.page')),
     haveHeader: true
+  },
+  {
+    path: RoutePath.cart,
+    component: lazy(() => import('../../pages/cart/Cart.page')),
+    haveHeader: true
   }
 ];
 

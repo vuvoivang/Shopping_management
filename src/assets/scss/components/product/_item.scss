@@ -45,4 +45,8 @@
   &__detail {
     @include button(#fff, $color-pr-1, #fff, $color-pr-2);
   }
+  &__add-to-cart {
+    @include button(#fff, $color-red, #fff, $color-fresh-red);
+    margin-right: 10px;
+  }
 }
