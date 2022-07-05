@@ -13,7 +13,7 @@ export interface SEOData {
 const withHTMLHeadSEO = (data: SEOData = {}) => BaseComponent => {
   class SEOComponent extends PureComponent {
     render() {
-      const title = (data && data.title) || 'React + Typescript + SCSS';
+      const title = (data && data.title) || 'Store';
       return (
         <>
           <Helmet title={title} />

@@ -1,13 +1,19 @@
 import { Product } from 'models/product.model';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartActions } from 'redux/cart';
+import { displayToastify } from 'utilities/toastify/toastify.utility';
 
 interface ProductItemProps {
   product: Product;
 }
 
-const ProductItem: React.FC<ProductItemProps> = ({ product: { id, name, price, image, detail } }: ProductItemProps) => {
+const ProductItem: React.FC<ProductItemProps> = (props: ProductItemProps) => {
+  const { id, name, price, image, detail } = props.product;
+  const dispatch = useDispatch();
   const addToCart = () => {
-    console.log('add to cart');
+    dispatch(cartActions.addToCart(props.product));
+    displayToastify('Add to cart successfully!!!', 'success', { position: 'top-center' });
   };
   return (
     <div className="c-product-item">
