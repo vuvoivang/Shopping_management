@@ -21,14 +21,14 @@ const ProductItem: React.FC<ProductItemProps> = ({ product: { id, name, price, i
               <div className="c-product-item__card-price">{`${price}.000 VND`}</div>
             </div>
             <div className="c-product-item__action">
+              <button type="button" className="c-product-item__add-to-cart" onClick={addToCart}>
+                Add to cart
+              </button>
               <NavLink to={`/products/${id}`}>
-                <button type="button" className="c-product-item__add-to-cart">
-                  Add to cart
+                <button type="button" className="c-product-item__detail">
+                  Detail
                 </button>
               </NavLink>
-              <button type="button" className="c-product-item__detail" onClick={addToCart}>
-                Detail
-              </button>
             </div>
           </div>
         </div>

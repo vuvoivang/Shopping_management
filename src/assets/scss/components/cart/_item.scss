@@ -1,0 +1,71 @@
+.c-cart-item {
+    border: 1px solid $color-grey;
+    padding: 25px;
+    width: 80%;
+    &:first-of-type{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    @include flex(row, space-evenly, center, wrap);
+    &__image {
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &__info {
+      @include flex(column, flex-start, flex-start, wrap);
+      width: 30%;
+      h4 {
+        margin-bottom: 10px;
+        font-size: $fs-lg;
+        color: $color-pr-2;
+        letter-spacing: 0.00735em;
+      }
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.43;
+        letter-spacing: 0.01071em;
+      }
+    }
+    &__price {
+      margin-top: $space-1o2;
+      color: $color-red;
+      font-size: $fs-md + 3px;
+      font-weight: $fw-bold-1;
+      text-align: center;
+    }
+    
+    &__btn-increase {
+        cursor: pointer;
+      color: $color-green;
+      font-size: 20px;
+      padding: 0;
+      background-color: transparent;
+      border:none;
+      &:focus-visible {
+        border: none;
+        outline: none;
+      }
+      &:hover {
+        color: $color-bold-green;
+        background-color: transparent;
+      }
+    }
+    &__btn-decrease {
+      @extend .c-cart-item__btn-increase;
+    }
+    &__quantity{
+        margin: 0 10px;
+        font-size: $fs-md;
+        font-weight: $fw-bold-1;
+    }
+    &__btn-remove {
+      @include button(#fff, $color-red, #fff, $color-fresh-red);
+      margin-right: 10px;
+    }
+  }
+  

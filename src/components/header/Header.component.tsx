@@ -5,12 +5,13 @@ import { Avatar, Menu, MenuItem, Tooltip } from '@material-ui/core';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { securityActions, securitySelector } from 'redux/security';
+import { RoutePathNavbar } from 'constants/app.constant';
 import Logo from '../../assets/images/logo.jpg';
 
 const Header: React.FC = () => {
   const [visibleNav, setVisibleNav] = useState(true);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const loginInfo = useSelector(state => securitySelector.getLoginInfo(state));
+  const loginInfo = useSelector(securitySelector.getLoginInfo);
   const dispatch = useDispatch();
   const history = useHistory();
   const handleOpenUserMenu = event => {
@@ -28,7 +29,16 @@ const Header: React.FC = () => {
     dispatch(securityActions.logout());
     history.go(0);
   };
-
+  const MenuItems = [
+    {
+      label: 'Tài khoản của tôi',
+      handleFunc: handleViewMyAccount
+    },
+    {
+      label: 'Đăng xuất',
+      handleFunc: handleLogout
+    }
+  ];
   return (
     <header className="c-header">
       <div className="c-header__logo">
@@ -39,15 +49,11 @@ const Header: React.FC = () => {
 
       <nav id="c-header__navigation" className="c-header__navigation" style={{ display: visibleNav ? 'flex' : 'none' }}>
         <ul>
-          <li className="c-header__navigation__item">
-            <NavLink to="/home">Home</NavLink>
-          </li>
-          <li className="c-header__navigation__item">
-            <NavLink to="/products">Our products</NavLink>
-          </li>
-          <li className="c-header__navigation__item">
-            <NavLink to="/about">About us</NavLink>
-          </li>
+          {RoutePathNavbar.map(item => (
+            <li key={item.href} className="c-header__navigation__item">
+              <NavLink to={item.href}>{item.label}</NavLink>
+            </li>
+          ))}
         </ul>
 
         <div className="c-header__button-group">
@@ -60,11 +66,14 @@ const Header: React.FC = () => {
           </NavLink>
 
           {loginInfo.user ? (
-            <Tooltip title="Tùy chọn">
-              <button type="button" className="c-header__user-option">
-                <Avatar className="c-header__avatar" alt="avatar" onClick={handleOpenUserMenu} src={loginInfo.user.avatar} />
-              </button>
-            </Tooltip>
+            <>
+              <p className="c-header__welcome">Hi <span className="c-header__user-name">{loginInfo.user.firstName}!</span></p>
+              <Tooltip title="Tùy chọn">
+                <button type="button" className="c-header__user-option">
+                  <Avatar className="c-header__avatar" alt="avatar" onClick={handleOpenUserMenu} src={loginInfo.user.avatar} />
+                </button>
+              </Tooltip>
+            </>
           ) : (
             <>
               {' '}
@@ -78,8 +87,6 @@ const Header: React.FC = () => {
           )}
 
           <Menu
-            style={{ marginTop: '45px' }}
-            id="menu-appbar"
             anchorEl={anchorElUser}
             anchorOrigin={{
               vertical: 'top',
@@ -90,15 +97,15 @@ const Header: React.FC = () => {
               vertical: 'top',
               horizontal: 'right'
             }}
+            className="c-header__user-menu"
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-            <MenuItem onClick={handleViewMyAccount}>
-              <p style={{ textAlign: 'center' }}>Tài khoản của tôi</p>
-            </MenuItem>
-            <MenuItem onClick={handleLogout}>
-              <p style={{ textAlign: 'center' }}>Đăng xuất</p>
-            </MenuItem>
+            {MenuItems.map(item => (
+              <MenuItem key={item.label} onClick={item.handleFunc}>
+                <p className="u-text-align--center">{item.label}</p>
+              </MenuItem>
+            ))}
           </Menu>
         </div>
       </nav>

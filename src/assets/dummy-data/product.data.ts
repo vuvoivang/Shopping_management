@@ -64,7 +64,7 @@ export const productList = [
   }
 ];
 
-export const fetchProductList = new Promise((resolve, reject) => {
+export const fetchProductList = new Promise((resolve) => {
   resolve(productList);
 });
 export const fetchProductDetail = async (id: string) => {

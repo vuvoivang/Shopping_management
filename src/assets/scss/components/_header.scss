@@ -43,6 +43,12 @@
   }
   &__button-group {
     @include flex(row, center, center, wrap);
+    a.active{
+      .c-header__button-cart{
+        background-color:rgb(6, 243, 14);
+        border-radius: 20px;
+      }
+    }
   }
   &__button-sign-up {
     @include button(#fff, $color-pr-1, #fff, $color-pr-2);
@@ -99,9 +105,19 @@
     border: 1px;
     cursor: pointer;
   }
+  &__welcome{
+    margin: 0 15px;
+  }
+  &__user-name{
+    color: $color-pr-1;
+    font-weight: $fw-bold-2;
+  }
   &__avatar {
     width: 50px;
     height: 50px;
+  }
+  &__user-menu{
+    margin-top: 60px;
   }
 }
 @include responsive('large') {
