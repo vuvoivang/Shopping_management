@@ -1,3 +1,6 @@
+import Map from 'components/demo/Map.component';
+import Timer from 'components/demo/Timer.component';
+
 export const AppConstant = {
   redux: {
     LANGUAGE_STATE: 'languageState',
@@ -17,7 +20,8 @@ export const RoutePath = {
   productDetail: '/products/:productId',
   about: '/about',
   login: '/login',
-  cart: '/cart'
+  cart: '/cart',
+  demo: '/demo'
 };
 
 export const RoutePathNavbar = [
@@ -32,6 +36,10 @@ export const RoutePathNavbar = [
   {
     label: 'About',
     href: '/about'
+  },
+  {
+    label: 'Demo',
+    href: '/demo'
   }
 ];
 
@@ -49,3 +57,14 @@ export const DefaultOptions = {
   draggable: true,
   progress: undefined
 };
+
+export const DemoComponents = [
+  {
+    name: 'Map',
+    component: Map
+  },
+  {
+    name: 'Timer',
+    component: Timer
+  }
+];

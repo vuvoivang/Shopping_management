@@ -9,7 +9,7 @@
   padding: 15px 50px;
   box-shadow: 0px 4px 20px rgba(12, 36, 64, 0.1);
   &__navigation {
-    width: 60%;
+    width: 65%;
     @include flex(row, space-between, center);
     ul {
       @include flex(row, space-evenly, center);

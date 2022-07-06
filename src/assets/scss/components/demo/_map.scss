@@ -1,0 +1,15 @@
+.map {
+  @include flex(column, center, center, wrap);
+  &__row {
+    width: 100%;
+    @include flex(row, center, center, wrap);
+  }
+  &__header {
+    color: $color-orange;
+  }
+  &__desc{
+    margin-top:10px;
+    margin-bottom: $space-1x1o2 * 1.5;
+    font-size:$fs-sm;
+  }
+}

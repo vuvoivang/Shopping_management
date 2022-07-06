@@ -16,6 +16,10 @@ const getNormalRoutes = (): RouteModel[] => [
   {
     path: RoutePath.login,
     component: lazy(() => import('../../pages/login/Login.page'))
+  },
+  {
+    path: RoutePath.demo,
+    component: lazy(() => import('../../pages/demo/Demo.page'))
   }
 ];
 

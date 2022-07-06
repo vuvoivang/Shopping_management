@@ -1,0 +1,10 @@
+.c-timer {
+  text-align: center;
+  span {
+    color: $color-orange;
+    font-weight: $fw-bold-1;
+    font-size: $fs-lg;
+    display: inline-block;
+    margin-left: $space-1o2;
+  }
+}
