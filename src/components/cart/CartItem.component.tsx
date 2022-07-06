@@ -3,6 +3,7 @@ import { faPlusCircle, faMinusCircle, faTrash } from '@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch } from 'react-redux';
 import { cartActions } from 'redux/cart';
+import { useEffect, useState } from 'react';
 
 interface CartItemProps {
   cartItem: ProductInCart;
@@ -12,6 +13,7 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
   const dispatch = useDispatch();
   const { id, name, price, image, detail, quantity } = props.cartItem;
+  const [quantityState, setQuantityState] = useState<string | number>(quantity);
   const increaseQuantity = () => {
     dispatch(cartActions.increaseNumber(id));
   };
@@ -21,6 +23,21 @@ const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
   const removeFromCart = () => {
     dispatch(cartActions.deleteFromCart(props.cartItem));
   };
+  const handleOnInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.validity.valid) return;
+    // eslint-disable-next-line no-param-reassign
+    event.target.value = '';
+  };
+  const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    dispatch(cartActions.changeNumber({ id, newQuantity: Number(event.target.value) }));
+  };
+  const handleOnChange = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (event.target.value.length === 0) setQuantityState('');
+    else setQuantityState(Number(event.target.value));
+  };
+  useEffect(() => {
+    setQuantityState(quantity);
+  }, [quantity]);
   return (
     <div className="c-cart-item">
       <img className="c-cart-item__image" src={image} alt="Smart watch" height="120" />
@@ -33,7 +50,7 @@ const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
         <button type="button" className="c-cart-item__btn-decrease" disabled={quantity < 2} onClick={decreaseQuantity}>
           <FontAwesomeIcon icon={faMinusCircle} size="lg" />
         </button>
-        <span className="c-cart-item__quantity">{quantity}</span>
+        <input className="c-cart-item__quantity" type="number" min="1" step="1" value={quantityState} onInput={handleOnInput} onBlur={handleOnBlur} onChange={handleOnChange} />
         <button type="button" className="c-cart-item__btn-increase" onClick={increaseQuantity}>
           <FontAwesomeIcon icon={faPlusCircle} size="lg" />
         </button>
