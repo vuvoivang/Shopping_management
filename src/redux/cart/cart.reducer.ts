@@ -70,6 +70,7 @@ const cartSlice = createSlice({
       }
     },
     checkout: () => ({ ...initialState }),
+    resetCart: () => ({ ...initialState }),
     restoreCart(state, action: PayloadAction<CartStateModel>) {
       return {
         ...state,

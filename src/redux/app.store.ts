@@ -21,7 +21,8 @@ const actionTypesWhitelist = [
   'cart/increaseNumber',
   'cart/decreaseNumber',
   'cart/checkout',
-  'cart/changeNumber'
+  'cart/changeNumber',
+  'cart/resetCart'
 ];
 
 const statesToBeStoredInLocalStorage: { stateKey?: (state: any) => void } = {

@@ -6,7 +6,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { securityActions, securitySelector } from 'redux/security';
 import { RoutePathNavbar } from 'constants/app.constant';
-import { cartSelector } from 'redux/cart';
+import { cartActions, cartSelector } from 'redux/cart';
 import Logo from '../../assets/images/logo.jpg';
 
 const Header: React.FC = () => {
@@ -29,6 +29,7 @@ const Header: React.FC = () => {
   const handleLogout = () => {
     handleCloseUserMenu();
     dispatch(securityActions.logout());
+    dispatch(cartActions.resetCart());
     history.go(0);
   };
   const MenuItems = [
