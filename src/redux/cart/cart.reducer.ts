@@ -6,6 +6,10 @@ import { Product } from 'models/product.model';
 interface CartStateModel {
   cart: Cart;
 }
+interface ChangeNumberArgs {
+  id: number;
+  newQuantity: number;
+}
 
 export const initialState: CartStateModel = {
   cart: {
@@ -53,6 +57,16 @@ const cartSlice = createSlice({
       if (idxProduct !== -1) {
         state.cart.totalAmount -= state.cart.listProduct[idxProduct].price;
         state.cart.listProduct[idxProduct].quantity -= 1;
+      }
+    },
+    changeNumber: (state, action: PayloadAction<ChangeNumberArgs>) => {
+      const { id, newQuantity } = action.payload;
+      const idxProduct = state.cart.listProduct.findIndex(item => item.id === id);
+      if (idxProduct !== -1 && newQuantity > 0 &&
+        newQuantity !== state.cart.listProduct[idxProduct].quantity) {
+        const quantityDiff = newQuantity - state.cart.listProduct[idxProduct].quantity;
+        state.cart.totalAmount += state.cart.listProduct[idxProduct].price * quantityDiff;
+        state.cart.listProduct[idxProduct].quantity = newQuantity;
       }
     },
     checkout: () => ({ ...initialState }),
