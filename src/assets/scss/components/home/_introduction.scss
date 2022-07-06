@@ -26,6 +26,7 @@
     width: 180px;
     padding: 20px 0;
     font-size: $fs-sm;
+    border-radius: 10px;
     span {
       @include text(#ffffff, $fs-sm, $fw-normal);
     }

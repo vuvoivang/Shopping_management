@@ -1,0 +1,80 @@
+$padding-content-nav: 40px;
+.c-demo {
+ 
+  @include flex(column, center, center, wrap);
+  padding: 50px;
+  &__row {
+    width: 100%;
+    @include flex(row, center, center, wrap);
+  }
+  &__header {
+    color: $color-orange;
+    margin-bottom: $space;
+    font-size: $fs-xl;
+  }
+  &__content{
+    width: 90%;
+    max-width: 1440px;
+    margin: 50px auto;
+    @include flex(row, space-between, flex-start, wrap);
+  }
+  &__navtab {
+    width: 20%;
+    min-width: 200px;
+    @include flex(column, flex-start, center, wrap);
+    h3{
+        width: 100%;
+        font-size: $fs-lg;
+        color: white;
+        background-color:$color-pr-2;
+        padding: 10px;
+        text-align: center;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    margin-right: $space;
+  }
+  &__navtab-list{
+    border: 1px solid $color-grey;
+    width: 100%;
+  }
+  &__content-tab {
+    width: 75%;
+    min-height: 30vh;
+    padding:$padding-content-nav;
+    background-color:#fafafa;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  &__navtab-item {
+    margin: 20px 0;
+    button {
+      display: inline-block;
+      padding-left: 20px;
+      cursor: pointer;
+      font-size: $fs-md;
+      background-color: transparent;
+      border: none;
+      &:focus-visible {
+        border: none;
+        outline: none;
+      }
+      &:hover {
+        color: $color-pr-3;
+        background-color: transparent;
+      }
+      &.active{
+        color: $color-pr-2;
+        text-decoration: underline;
+        font-weight: $fw-bold-2;
+      }
+    }
+  }
+  &__btn-back{
+    margin-top:60px;
+    @include button(#fff, $color-red, #fff, $color-orange);
+    letter-spacing: 1px;
+    margin-right: 15px;
+    border: none;
+  }
+}
