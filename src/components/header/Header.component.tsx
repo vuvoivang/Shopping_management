@@ -64,7 +64,7 @@ const Header: React.FC = () => {
             {' '}
             <button type="button" className="c-header__button-cart">
               <FontAwesomeIcon icon={faCartShopping} />
-              <span className="c-header__button-cart-number">{cart.listProduct.length}</span>
+              <span className="c-header__button-cart-number">{cart.listProduct?.length || 0}</span>
             </button>
           </NavLink>
 
