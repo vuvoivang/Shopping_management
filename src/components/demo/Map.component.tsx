@@ -8,19 +8,13 @@ interface State {
 }
 class Map extends Component {
   state = { products: productList };
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
-  }
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
-  }
+
   handleRemoveItem = index => {
     this.setState((prevState: State) => ({ products: prevState.products.filter((p, i) => i !== index) }));
   };
+
   compareHigherPrice = (a, b) => a.price - b.price;
+
   render() {
     return (
       <div className="map">

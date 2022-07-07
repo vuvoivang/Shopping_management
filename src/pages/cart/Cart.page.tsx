@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { cartActions, cartSelector } from 'redux/cart';
@@ -53,7 +54,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   handleCheckout: () => {
-    displayToastify('Check out successfully, please track the shipping process !!', 'success', { position: 'top-center' });
+    displayToastify('Check out successfully, please track the shipping process !!', 'success');
     dispatch(cartActions.checkout());
   }
 });

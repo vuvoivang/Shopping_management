@@ -28,6 +28,7 @@ class ErrorBoundary extends Component<{}, ErrorBoundaryState> {
           <div className="c-error-boundary__message">
             <div>{this.state.error && this.state.error.toString()}</div>
             <pre ref={this.errorRef} className="c-error-boundary__message-content">
+              {/* in which file...  */}
               {this.state.errorInfo.componentStack}
             </pre>
           </div>

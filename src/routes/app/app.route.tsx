@@ -6,20 +6,24 @@ const getNormalRoutes = (): RouteModel[] => [
   {
     path: RoutePath.home,
     component: lazy(() => import('../../pages/home/Home.page')),
-    haveHeader: true
+    haveHeader: true,
+    title: 'Shopping creative'
   },
   {
     path: RoutePath.about,
     component: lazy(() => import('../../pages/about/About.page')),
-    haveHeader: true
+    haveHeader: true,
+    title: 'About authority'
   },
   {
     path: RoutePath.login,
-    component: lazy(() => import('../../pages/login/Login.page'))
+    component: lazy(() => import('../../pages/login/Login.page')),
+    title: 'Login'
   },
   {
     path: RoutePath.demo,
-    component: lazy(() => import('../../pages/demo/Demo.page'))
+    component: lazy(() => import('../../pages/demo/Demo.page')),
+    title: 'Chill with some demos'
   }
 ];
 
@@ -28,17 +32,20 @@ const getAuthRoutes = (): RouteModel[] => [
     path: RoutePath.productList,
     component: lazy(() => import('../../pages/product/product-list/List.page')),
     exact: true,
-    haveHeader: true
+    haveHeader: true,
+    title: 'Product list'
   },
   {
     path: RoutePath.productDetail,
     component: lazy(() => import('../../pages/product/product-detail/Detail.page')),
-    haveHeader: true
+    haveHeader: true,
+    title: 'Product detail'
   },
   {
     path: RoutePath.cart,
     component: lazy(() => import('../../pages/cart/Cart.page')),
-    haveHeader: true
+    haveHeader: true,
+    title: 'Cart'
   }
 ];
 

@@ -1,6 +1,6 @@
 import { Product } from 'models/product.model';
 import { Fragment, useState } from 'react';
-import { fetchProductList } from '../../../assets/dummy-data/product.data';
+import { fetchProductList } from 'services/product.service';
 import ProductItem from '../../../components/product/ProductItem.component';
 
 const ProductList: React.FC = () => {

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -34,6 +35,8 @@ class Timer extends Component {
   }
   // try/catch, log error
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+    console.log('error', error);
+    console.log('errorInfo', errorInfo);
     console.log('componentDidCatch');
   }
   componentWillUnmount() {
