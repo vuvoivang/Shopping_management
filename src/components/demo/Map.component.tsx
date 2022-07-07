@@ -20,13 +20,14 @@ class Map extends Component {
   handleRemoveItem = index => {
     this.setState((prevState: State) => ({ products: prevState.products.filter((p, i) => i !== index) }));
   };
+  compareHigherPrice = (a, b) => a.price - b.price;
   render() {
     return (
       <div className="map">
         <h1 className="map__header">Your Cart</h1>
         <p className="map__desc u-font-weight--mid-bold">Delete a random item and you will find something interesting </p>
         <div className="map__row">
-          {this.state.products.map((product, index) => (
+          {this.state.products.sort(this.compareHigherPrice).map((product, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <MapItem key={index} product={product} handleRemoveItem={this.handleRemoveItem} index={index} />
           ))}

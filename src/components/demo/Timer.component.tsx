@@ -32,6 +32,10 @@ class Timer extends Component {
   componentDidUpdate() {
     console.log('componentDidUpdate');
   }
+  // try/catch, log error
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+    console.log('componentDidCatch');
+  }
   componentWillUnmount() {
     console.log('componentWillUnmount');
     clearInterval(this.state.interval);
