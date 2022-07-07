@@ -13,6 +13,7 @@ interface MapItemProps {
 const MapItem: React.FC<MapItemProps> = (props: MapItemProps) => {
   const { name, price, image, detail } = props.product;
   const [quantity, setQuantity] = useState<number | string>(1);
+
   const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setQuantity(Number(event.target.value));
   };
@@ -20,6 +21,12 @@ const MapItem: React.FC<MapItemProps> = (props: MapItemProps) => {
     if (event.target.value.length === 0) setQuantity('');
     else setQuantity(Number(event.target.value));
   };
+  const handleOnInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.validity.valid) return;
+    // eslint-disable-next-line no-param-reassign
+    event.target.value = '';
+  };
+
   const increaseQuantity = () => {
     setQuantity(prevQuantity => Number(prevQuantity) + 1);
   };
@@ -31,11 +38,7 @@ const MapItem: React.FC<MapItemProps> = (props: MapItemProps) => {
   const removeFromCart = () => {
     props.handleRemoveItem(props.index);
   };
-  const handleOnInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.validity.valid) return;
-    // eslint-disable-next-line no-param-reassign
-    event.target.value = '';
-  };
+
   return (
     <div className="c-map-item">
       <img className="c-map-item__image" src={image} alt="Smart watch" height="120" />

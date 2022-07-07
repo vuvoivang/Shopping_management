@@ -13,7 +13,7 @@ const ProductItem: React.FC<ProductItemProps> = (props: ProductItemProps) => {
   const dispatch = useDispatch();
   const addToCart = () => {
     dispatch(cartActions.addToCart(props.product));
-    displayToastify('Add to cart successfully!!!', 'success', { position: 'top-center' });
+    displayToastify('Add to cart successfully!!!', 'success', { autoClose: 300 });
   };
   return (
     <div className="c-product-item">

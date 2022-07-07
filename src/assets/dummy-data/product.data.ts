@@ -63,14 +63,3 @@ export const productList = [
     image: 'https://cf.shopee.vn/file/9b954a57f4a0c21922ff07dcb709f9d2'
   }
 ];
-
-export const fetchProductList = new Promise((resolve) => {
-  resolve(productList);
-});
-export const fetchProductDetail = async (id: string) => {
-  const foundIdx = productList.findIndex(product => product.id === Number(id));
-  if (foundIdx === -1) {
-    throw new Error('Product not found!!!');
-  }
-  return productList[foundIdx];
-};

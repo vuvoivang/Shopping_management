@@ -12,18 +12,21 @@ import Logo from '../../assets/images/logo.jpg';
 const Header: React.FC = () => {
   const [visibleNav, setVisibleNav] = useState(true);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
   const loginInfo = useSelector(securitySelector.getLoginInfo);
   const cart = useSelector(cartSelector.getCart);
+
   const dispatch = useDispatch();
   const history = useHistory();
+
   const handleOpenUserMenu = event => {
     setAnchorElUser(event.currentTarget);
   };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
   const handleViewMyAccount = () => {
-    console.log('View my account');
     handleCloseUserMenu();
   };
   const handleLogout = () => {
@@ -32,6 +35,7 @@ const Header: React.FC = () => {
     dispatch(cartActions.resetCart());
     history.go(0);
   };
+
   const MenuItems = [
     {
       label: 'Tài khoản của tôi',
@@ -42,10 +46,11 @@ const Header: React.FC = () => {
       handleFunc: handleLogout
     }
   ];
+
   return (
     <header className="c-header">
       <div className="c-header__logo">
-        <NavLink to="/">
+        <NavLink to="/home">
           <img src={Logo} alt="Logo shopping" />
         </NavLink>
       </div>

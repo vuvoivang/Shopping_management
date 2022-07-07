@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import IntroImage from '../../assets/images/introduction.png';
 
 const Introduction: React.FC = () => (
@@ -10,12 +11,18 @@ const Introduction: React.FC = () => (
         nascetur ridiculus mus.
       </p>
       <div>
-        <button type="button" id="c-introduction__btn--demo" className="c-introduction__btn-demo">
-          <span>Get started</span>
-        </button>
-        <button type="button" id="c-introduction__btn-download" className="c-introduction__btn-download">
-          <span>Shopping now</span>
-        </button>
+        <NavLink to="/products">
+          {' '}
+          <button type="button" id="c-introduction__btn--demo" className="c-introduction__btn-demo">
+            <span>Get started</span>
+          </button>
+        </NavLink>
+        <NavLink to="/products">
+          {' '}
+          <button type="button" id="c-introduction__btn-download" className="c-introduction__btn-download">
+            <span>Shopping now</span>
+          </button>
+        </NavLink>
       </div>
     </div>
     <div className="c-introduction__desc">

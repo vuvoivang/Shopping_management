@@ -30,7 +30,7 @@ export const RoutePathNavbar = [
     href: '/home'
   },
   {
-    label: 'Our products',
+    label: 'Products',
     href: '/products'
   },
   {

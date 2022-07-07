@@ -14,6 +14,7 @@ const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
   const dispatch = useDispatch();
   const { id, name, price, image, detail, quantity } = props.cartItem;
   const [quantityState, setQuantityState] = useState<string | number>(quantity);
+
   const increaseQuantity = () => {
     dispatch(cartActions.increaseNumber(id));
   };
@@ -23,6 +24,7 @@ const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
   const removeFromCart = () => {
     dispatch(cartActions.deleteFromCart(props.cartItem));
   };
+
   const handleOnInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.validity.valid) return;
     // eslint-disable-next-line no-param-reassign
@@ -35,9 +37,11 @@ const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
     if (event.target.value.length === 0) setQuantityState('');
     else setQuantityState(Number(event.target.value));
   };
+
   useEffect(() => {
     setQuantityState(quantity);
   }, [quantity]);
+
   return (
     <div className="c-cart-item">
       <img className="c-cart-item__image" src={image} alt="Smart watch" height="120" />
