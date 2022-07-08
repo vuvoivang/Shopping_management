@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { useLoading } from 'hooks/useLoading/useLoading';
 import { LoginInfo } from '../../pages/login/Login.page';
-import { loginService } from '../../services/security.service';
+import { login } from '../../services/security/security.service';
 
 // Code async logic, tham số đầu tiên data là dữ liệu truyền vào khi gọi action
 // payloadCreator: callback
@@ -10,7 +10,7 @@ const actionLogin = async (data: LoginInfo, payloadCreator) => {
   // Call API backend
   let response = null;
   try {
-    response = await loginService(data.email, data.password);
+    response = await login(data.email, data.password);
     // Còn không thì trả về dữ liệu
     return response;
   } catch (err) {
