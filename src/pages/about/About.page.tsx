@@ -10,7 +10,7 @@ const About: React.FC = () => (
     </h1>
     <p className="c-about__desc">
       I am a software engineer, currently working at{' '}
-      <a className="about-me__link--blue u-color--blue u-font-weight--mid-bold" href="https://kms-technology.com/">
+      <a className="c-about-me__link--blue u-color--blue u-font-weight--mid-bold" href="https://kms-technology.com/">
         KMS Technology
       </a>{' '}
       as a Front-End Developer Intern.

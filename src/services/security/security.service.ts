@@ -1,5 +1,5 @@
 import { User } from 'models/user.model';
-import { users } from '../assets/dummy-data/user.data';
+import { users } from '../../assets/dummy-data/user.data';
 
 export interface LoginResponse {
   status: string;
@@ -8,7 +8,7 @@ export interface LoginResponse {
   };
   message?: string;
 }
-export const loginService = (email: string, password: string): Promise<LoginResponse> =>
+export const login = (email: string, password: string): Promise<LoginResponse> =>
   new Promise((resolve, reject) => {
     setTimeout(() => {
       const response = users.find(user => user.email === email && user.password === password);
@@ -20,6 +20,7 @@ export const loginService = (email: string, password: string): Promise<LoginResp
           }
         });
       }
-      return reject(new Error("Can't find user"));
+      // eslint-disable-next-line prefer-promise-reject-errors
+      return reject("Can't find user");
     }, 1000);
   });

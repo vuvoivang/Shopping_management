@@ -1,7 +1,7 @@
 import { User } from 'models/user.model';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppConstant } from 'constants/app.constant';
-import { LoginResponse } from 'services/security.service';
+import { LoginResponse } from 'services/security/security.service';
 import { security } from './security.action';
 
 export const REDUCER_ID = AppConstant.redux.SECURITY_STATE; // string
