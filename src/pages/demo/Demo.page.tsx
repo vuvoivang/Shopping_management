@@ -34,7 +34,7 @@ const Demo: React.FC = () => {
             {' '}
             <button type="button" className="c-demo__btn-back">
               <FontAwesomeIcon icon={faArrowLeft} size="lg" style={{ marginRight: 10 }} />
-              Back to home
+              Home
             </button>
           </NavLink>
         </div>

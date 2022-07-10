@@ -50,3 +50,31 @@
     margin-right: 10px;
   }
 }
+@media screen and (max-width: 1400px) {
+  .c-product-item {
+    padding: 15px;
+    width: 33%;
+    &__action{
+      @include flex(column, center, center, wrap);
+    }
+    &__detail{
+      margin-top: 10px;
+    }
+  }
+}
+@include responsive('large') {
+  .c-product-item {
+    padding: 20px;
+    width: 50%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .c-product-item {
+    width: 100%;
+    &__card-content{
+      p{
+        font-size:$fs-sm;
+      }
+    }
+  }
+}

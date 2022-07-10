@@ -121,7 +121,8 @@
     margin-top: 60px;
   }
 }
-@include responsive('large') {
+
+@media screen and (max-width: 1200px) {
   .c-header {
     &__navigation {
       &__item {
@@ -137,6 +138,7 @@
     overflow: hidden;
     position: relative;
     &__navigation {
+      min-width: unset;
       display: none;
       width: 100%;
       padding-top: 20px;
@@ -163,5 +165,10 @@
     &__button-sign-up {
       margin-top: 10px;
     }
+  }
+}
+@include responsive('small'){
+  .c-header {
+    padding: 15px 30px;
   }
 }
