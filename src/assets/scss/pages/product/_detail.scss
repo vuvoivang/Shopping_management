@@ -43,3 +43,32 @@
 .l_wrapper {
   @include flex(row, space-around, center, wrap);
 }
+@media screen and (max-width: 1450px)  {
+  .c-product-detail{
+    &__card-item{
+      padding: 50px;
+    }
+  }
+}
+@media screen and (max-width: 950px)  {
+  .c-product-detail{
+    flex-direction: column;
+    &__info{
+      align-items: center;
+      margin-top:30px;
+    }
+  }
+}
+@media screen and (max-width: 600px)  {
+  .c-product-detail{
+    flex-direction: column;
+    &__btn-group{
+      margin-top:10px;
+      @include flex(column, center, space-between, wrap);
+      
+    }
+    &__button-add-to-cart{
+      margin-bottom:25px;
+    }
+  }
+}

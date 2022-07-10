@@ -19,7 +19,7 @@ class Map extends Component {
     return (
       <div className="map">
         <h1 className="map__header">Your Cart</h1>
-        <p className="map__desc u-font-weight--mid-bold">Delete a random item and you will find something interesting </p>
+        <p className="map__desc u-font-weight--mid-bold">Change the amount, then delete that item and you will find something interesting </p>
         <div className="map__row">
           {this.state.products.sort(this.compareHigherPrice).map((product, index) => (
             // eslint-disable-next-line react/no-array-index-key

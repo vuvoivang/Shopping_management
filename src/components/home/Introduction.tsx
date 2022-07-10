@@ -10,16 +10,16 @@ const Introduction: React.FC = () => (
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
         nascetur ridiculus mus.
       </p>
-      <div>
+      <div className="c-introduction__btn-group">
         <NavLink to="/products">
           {' '}
-          <button type="button" id="c-introduction__btn--demo" className="c-introduction__btn-demo">
+          <button type="button" id="c-introduction__btn-demo" className="c-introduction__btn-demo">
             <span>Get started</span>
           </button>
         </NavLink>
         <NavLink to="/products">
           {' '}
-          <button type="button" id="c-introduction__btn-download" className="c-introduction__btn-download">
+          <button type="button" id="c-introduction__btn-shopping" className="c-introduction__btn-shopping">
             <span>Shopping now</span>
           </button>
         </NavLink>

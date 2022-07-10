@@ -52,13 +52,12 @@ const ProductDetail: React.FC = () => {
                 <h1 className="u-color--blue">{product.name}</h1>
                 <p>{product.detail}</p>
                 <div className="c-product-detail__card-price">{`${product.price}.000 VND`}</div>
-                <div className="btn-group">
+                <div className="c-product-detail__btn-group">
                   <button type="button" className="c-product-detail__button-add-to-cart" onClick={addToCart}>
                     <FontAwesomeIcon icon={faPlusCircle} size="lg" /> Add to cart
                   </button>
-
                   <button type="button" className="c-product-detail__button-download-desc">
-                    <a href={Number(product.id) % 2 === 0 ? '/files/EvenProduct.xlsx' : '/files/OddProduct.xlsx'} target="_self">
+                    <a href="https://file-examples.com/wp-content/uploads/2017/02/file_example_XLSX_100.xlsx" target="_self">
                       <FontAwesomeIcon icon={faDownload} size="lg" /> Down description file
                     </a>
                   </button>

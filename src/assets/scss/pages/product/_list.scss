@@ -3,10 +3,15 @@
   padding: 80px;
   &__row {
     width: 100%;
-    @include flex(row, center, center, wrap);
+    @include flex(row, flex-start, center, wrap);
   }
   &__header {
     color: $color-orange;
     margin-bottom: $space-2x;
+  }
+}
+@media screen and (max-width: 1450px) {
+  .c-product-list {
+    padding: 50px;
   }
 }

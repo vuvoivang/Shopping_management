@@ -1,6 +1,6 @@
 .c-introduction {
   background-color: $bg-color-intro;
-  padding: 100px 0 100px;
+  padding: 100px 20px 100px;
   color: $color-pr-1;
   @include flex(row, space-around, center, wrap);
   &__info {
@@ -32,7 +32,7 @@
     }
     margin: 10px;
   }
-  &__btn-download {
+  &__btn-shopping {
     @extend .c-introduction__btn-demo;
     background-color: $color-pr-1;
     border-color: transparent;
@@ -41,60 +41,68 @@
 
 @include responsive('extra-large') {
   .c-introduction {
-    padding: 200px 0 400px;
-    &__description {
-      font-size: $fs-lg - 2px;
-      line-height: 40px;
+    &__title {
+      font-size: $fs-lg;
     }
     &__btn-demo {
-      padding: 25px 30px;
-      width: 230px;
       span {
         font-size: $fs-sm;
       }
       margin: 0 10px;
     }
+    &__desc {
+      img {
+        height: 350px;
+      }
+    }
   }
 }
 @include responsive('large') {
   .c-introduction {
-    padding: 200px 30px 400px;
+    flex-direction: column;
+    &__info {
+      width: 100%;
+      margin-bottom: 80px;
+    }
   }
 }
 
 @include responsive('medium') {
   .c-introduction {
-    &__title {
-      font-size: $fs-lg + 5px;
-    }
-    &__description {
-      font-size: $fs-md;
-      line-height: 40px;
-    }
-    &__btn-demo {
-      span {
-        font-size: $fs-md;
+    &__desc {
+      img {
+        height: auto;
+        width: 70%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
-      margin: 0 5px;
     }
   }
 }
 
 @include responsive('small') {
   .c-introduction {
-    &__title {
-      font-size: $fs-md + 2px;
-    }
+    padding: 50px 25px;
     &__description {
       font-size: $fs-sm;
-      line-height: 30px;
     }
-    &__btn-demo {
-      max-width: 130px;
-      text-align: center;
-      span {
-        font-size: $fs-sm - 3px;
-      }
+    &__btn-demo,
+    &__btn-shopping {
+      padding: 10px 5px;
+    }
+    
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .c-introduction {
+    &__btn-group{
+      @include flex(column, center, center, wrap);
+    }
+    &__btn-demo,
+    &__btn-shopping {
+      margin:10px;
     }
   }
 }

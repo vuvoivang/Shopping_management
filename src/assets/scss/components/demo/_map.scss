@@ -14,3 +14,8 @@
     font-size:$fs-sm;
   }
 }
+@include responsive('large'){
+  &__desc{
+    text-align: center;
+  }
+}

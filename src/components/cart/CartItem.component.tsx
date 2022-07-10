@@ -50,18 +50,20 @@ const CartItem: React.FC<CartItemProps> = (props: CartItemProps) => {
         <p>{detail}</p>
       </div>
       <div className="c-cart-item__price">{`${price}.000 Đ`}</div>
-      <div className="c-cart-item__action">
-        <button type="button" className="c-cart-item__btn-decrease" disabled={quantity < 2} onClick={decreaseQuantity}>
-          <FontAwesomeIcon icon={faMinusCircle} size="lg" />
-        </button>
-        <input className="c-cart-item__quantity" type="number" min="1" step="1" value={quantityState} onInput={handleOnInput} onBlur={handleOnBlur} onChange={handleOnChange} />
-        <button type="button" className="c-cart-item__btn-increase" onClick={increaseQuantity}>
-          <FontAwesomeIcon icon={faPlusCircle} size="lg" />
+      <div className="c-cart-item__handle">
+        <div className="c-cart-item__action">
+          <button type="button" className="c-cart-item__btn-decrease" disabled={quantity < 2} onClick={decreaseQuantity}>
+            <FontAwesomeIcon icon={faMinusCircle} size="lg" />
+          </button>
+          <input className="c-cart-item__quantity" type="number" min="1" step="1" value={quantityState} onInput={handleOnInput} onBlur={handleOnBlur} onChange={handleOnChange} />
+          <button type="button" className="c-cart-item__btn-increase" onClick={increaseQuantity}>
+            <FontAwesomeIcon icon={faPlusCircle} size="lg" />
+          </button>
+        </div>
+        <button type="button" className="c-cart-item__btn-remove" onClick={removeFromCart}>
+          <FontAwesomeIcon icon={faTrash} size="lg" />
         </button>
       </div>
-      <button type="button" className="c-cart-item__btn-remove" onClick={removeFromCart}>
-        <FontAwesomeIcon icon={faTrash} size="lg" />
-      </button>
     </div>
   );
 };
