@@ -157,7 +157,7 @@ const Login: React.FC = () => {
               <button type="submit" className="btn c-login-form__form-submit form-submit">
                 <span>Login</span>
               </button>
-              <Grid container>
+              <Grid container className="c-login-form__helper">
                 <Grid item xs>
                   <Link className="u-text-decoration--none u-color--blue" to="/home">
                     Quên mật khẩu ?
