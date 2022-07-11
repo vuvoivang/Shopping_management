@@ -1,3 +1,20 @@
 {
-  "HELLO": "Hello"
+  "home": "Home",
+  "products": "Products",
+  "about": "About",
+  "demo": "Demo",
+  "my_account": "My account",
+  "log_out": "Log out",
+  "hi": "Hi",
+  "sign_in": "Sign in",
+  "sign_up": "Sign up",
+  "intro_title": "Shopping Creative - All you need",
+  "intro_desc": "Perfect service is the fastest way to the hearts of shoppers. Decisive price, experience holds the heart",
+  "intro_btn_start": "Get started",
+  "intro_btn_shopping": "Shopping now",
+  "product_list": "Product List",
+  "add_to_cart": "Add to cart",
+  "down_desc_file": "Down description file",
+  "my_name": "My name: "
+
 }

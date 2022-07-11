@@ -5,6 +5,7 @@ import { faPlusCircle, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { Product } from 'models/product.model';
 import { cartActions } from 'redux/cart';
 import { useDispatch } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import { displayToastify } from 'utilities/toastify/toastify.utility';
 import { fetchProductDetail } from 'services/product.service';
 import Helmet from 'react-helmet';
@@ -54,11 +55,11 @@ const ProductDetail: React.FC = () => {
                 <div className="c-product-detail__card-price">{`${product.price}.000 VND`}</div>
                 <div className="c-product-detail__btn-group">
                   <button type="button" className="c-product-detail__button-add-to-cart" onClick={addToCart}>
-                    <FontAwesomeIcon icon={faPlusCircle} size="lg" /> Add to cart
+                    <FontAwesomeIcon icon={faPlusCircle} size="lg" style={{ marginRight: 10 }} /> <FormattedMessage id="add_to_cart" defaultMessage="Add to cart" />
                   </button>
                   <button type="button" className="c-product-detail__button-download-desc">
                     <a href="https://file-examples.com/wp-content/uploads/2017/02/file_example_XLSX_100.xlsx" target="_self">
-                      <FontAwesomeIcon icon={faDownload} size="lg" /> Down description file
+                      <FontAwesomeIcon icon={faDownload} size="lg" style={{ marginRight: 7 }} /> <FormattedMessage id="down_desc_file" defaultMessage="Down description file" />
                     </a>
                   </button>
                 </div>

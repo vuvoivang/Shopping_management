@@ -26,19 +26,19 @@ export const RoutePath = {
 
 export const RoutePathNavbar = [
   {
-    label: 'Home',
+    label: 'home',
     href: '/home'
   },
   {
-    label: 'Products',
+    label: 'products',
     href: '/products'
   },
   {
-    label: 'About',
+    label: 'about',
     href: '/about'
   },
   {
-    label: 'Demo',
+    label: 'demo',
     href: '/demo'
   }
 ];
