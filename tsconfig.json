@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es5", // version js compile, vd es5 thì arrow -> normal function
     "lib": [
       "dom",
       "dom.iterable",
@@ -22,7 +22,7 @@
     "src",
     "config/jest"
   ],
-  "exclude": [
+  "exclude": [ // not be compiled
     "config/scripts",
     "node_modules",
     "cypress", // folders cypress - testing tool 
