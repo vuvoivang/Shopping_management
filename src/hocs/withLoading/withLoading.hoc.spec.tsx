@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMockStore, mountWithProvider } from '../../../config/jest/mocks/ReduxStoreMock';
+import { getMockStore, mountWithProviderAndRouter } from '../../../config/jest/mocks/ReduxStoreMock';
 import { withLoading } from './withLoading.hoc';
 import About from 'pages/about/About.page';
 
@@ -15,7 +15,7 @@ describe('withLoading', () => {
 
   const setUp = store => {
     const HocWithLoadingComponent = withLoading(About);
-    const wrapper = mountWithProvider(<HocWithLoadingComponent />)(store);
+    const wrapper = mountWithProviderAndRouter(<HocWithLoadingComponent />)(store);
     return { wrapper };
   };
 
