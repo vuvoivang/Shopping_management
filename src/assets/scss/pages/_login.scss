@@ -1,16 +1,15 @@
 .c-login-form {
   background: rgb(230, 229, 229);
   background-size: contain;
-  height: 100vh;
   display: flex;
   justify-content: center;
   padding: 34px 0px;
   width: 100%;
   &__form-content {
     width: 60%;
-    height: 100%;
+    height: 90vh;
+    min-height:600px;
     position: relative;
-
     #form-login {
       width: 100%;
       position: absolute;
@@ -161,14 +160,17 @@
   }
 }
 @media only screen and (max-width: 1400px) {
-  .login-form {
+  .c-login-form {
     &__slogan {
       padding: 16px 40px;
+    }
+    &__helper{
+      margin-top: 35px;
     }
   }
 }
 @media only screen and (max-width: 1240px) {
-  .login-form {
+  .c-login-form {
     &__form-content {
       width: 60%;
     }
@@ -202,11 +204,12 @@
         font-size: $fs-lg;
       }
     }
+   
   }
 }
 
 @include responsive('large') {
-  .login-form {
+  .c-login-form {
     &__form-content {
       width: 70%;
     }
@@ -243,7 +246,7 @@
   }
 }
 @include responsive('medium') {
-  .login-form {
+  .c-login-form {
     &__form-content {
       width: 75%;
       #form-login {
@@ -292,7 +295,7 @@
   }
 }
 @media only screen and (max-width: 650px) {
-  .login-form {
+  .c-login-form {
     display: block;
     position: relative;
     &__form-content {
@@ -300,6 +303,18 @@
     }
     &__phone-image {
       display: none;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .c-login-form {
+    &__helper{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      div{
+        margin:10px;
+      }
     }
   }
 }
