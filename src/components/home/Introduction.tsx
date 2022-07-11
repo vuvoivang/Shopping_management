@@ -1,26 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import IntroImage from '../../assets/images/introduction.png';
 
 const Introduction: React.FC = () => (
   <section className="c-introduction">
     <div className="c-introduction__info">
-      <h1 className="c-introduction__title">Shopping Creative - All you need</h1>
+      <h1 className="c-introduction__title"><FormattedMessage id="intro_title" defaultMessage="Shopping Creative - All you need" /></h1>
       <p className="c-introduction__description">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus.
+        <FormattedMessage id="intro_desc" defaultMessage="Perfect service is the fastest way to the hearts of shoppers. Decisive price, experience holds the heart" />
       </p>
       <div className="c-introduction__btn-group">
         <NavLink to="/products">
           {' '}
           <button type="button" id="c-introduction__btn-demo" className="c-introduction__btn-demo">
-            <span>Get started</span>
+            <span><FormattedMessage id="intro_btn_start" defaultMessage="Get started" /></span>
           </button>
         </NavLink>
         <NavLink to="/products">
           {' '}
           <button type="button" id="c-introduction__btn-shopping" className="c-introduction__btn-shopping">
-            <span>Shopping now</span>
+            <span><FormattedMessage id="intro_btn_shopping" defaultMessage="Shopping now" /></span>
           </button>
         </NavLink>
       </div>

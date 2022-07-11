@@ -1,3 +1,19 @@
 {
-    "HELLO": "Xin chào"
+    "home": "Trang chủ",
+    "products": "Sản phẩm",
+    "about": "Giới thiệu",
+    "demo": "Thử nghiệm",
+    "my_account": "Tài khoản của tôi",
+    "log_out": "Đăng xuất",
+    "hi": "Chào",
+    "sign_in": "Đăng nhập",
+    "sign_up": "Đăng ký",
+    "intro_title": "Mua sắm thông minh - Tất cả những gì bạn cần",
+    "intro_desc": "Dịch vụ hoàn hảo là con đường nhanh nhất đến trái tim người mua hàng. Giá cả khơi dậy quyết định, trải nghiệm giữ chặt trái tim",
+    "intro_btn_start": "Bắt đầu",
+    "intro_btn_shopping": "Mua ngay",
+    "product_list": "Danh sách sản phẩm",
+    "add_to_cart": "Thêm vào giỏ hàng",
+    "down_desc_file": "Tải xuống tập tin mô tả",
+    "my_name": "Tên của tôi: "
 }

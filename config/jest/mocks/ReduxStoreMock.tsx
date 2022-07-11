@@ -12,6 +12,7 @@ import history from '../../../src/helpers/history.helper';
 import { Router } from 'react-router';
 import { getLanguageMessages } from '../../../src/utilities/i18n/i18n.utility';
 import { IntlProvider } from 'react-intl';
+import ConnectedIntlProvider from '../../../src/components/connected-intl-provider/ConnectedIntlProvider.component';
 
 const languageInitialState = {
   [AppConstant.redux.LANGUAGE_STATE]: {
@@ -29,31 +30,29 @@ export const defaultStore = {
 };
 const { locale, languageMessages } = getLanguageMessages(navigator.language.split(/[-_]/)[0]);
 
-export const shallowWithProvider = children => (store = getMockStore({})) => shallow(<Provider
-  store={store}>{children}</Provider>);
-export const mountWithProvider = children => (store = getMockStore({})) => mount(<Provider
-  store={store}>{children}</Provider>);
+export const shallowWithProvider = children => (store = getMockStore({})) => shallow(<Provider store={store}>{children}</Provider>);
+export const mountWithProvider = children => (store = getMockStore({})) => mount(<Provider store={store}>{children}</Provider>);
+
+export const mountWithProviderAndIntl = children => (store = getMockStore({})) =>
+  mount(
+    <Provider store={store}>
+      <ConnectedIntlProvider>
+        {children}
+      </ConnectedIntlProvider>
+    </Provider>
+  );
 
 export const mountWithProviderAndRouter = children => (store = getMockStore({})) => {
   return mount(
-    (
-      <Provider store={store}>
-        <IntlProvider locale={locale} messages={languageMessages}>
-          <Router history={history}>
-            {children}
-          </Router>
-        </IntlProvider>
-      </Provider>
-    )
+    <Provider store={store}>
+      <IntlProvider locale={locale} messages={languageMessages}>
+        <Router history={history}>{children}</Router>
+      </IntlProvider>
+    </Provider>
   );
-}
+};
 
-export const mountWithProviderAndStore = (
-  children,
-  userType?: string,
-  store?: { [key: string]: any },
-  middleware = []
-) => {
+export const mountWithProviderAndStore = (children, userType?: string, store?: { [key: string]: any }, middleware = []) => {
   let mockStore;
   if (!store) {
     mockStore = getMockStore(defaultStore, middleware);
