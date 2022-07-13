@@ -1,7 +1,7 @@
 import Map from 'components/demo/Map.component';
 import Timer from 'components/demo/Timer.component';
 
-export const AppConstant = {
+export const AppConstant = { // name of app's states
   redux: {
     LANGUAGE_STATE: 'languageState',
     ROUTER_STATE: 'router',
@@ -9,7 +9,7 @@ export const AppConstant = {
     GLOBAL_STATE: 'globalState',
     CART_STATE: 'cartState'
   },
-  storageKey: {
+  storageKey: { // key in localStorage
     state: 'appState'
   }
 };
@@ -40,6 +40,17 @@ export const RoutePathNavbar = [
   {
     label: 'demo',
     href: '/demo'
+  }
+];
+
+export const MenuItemsLanguage = [
+  {
+    label: 'Vietnamese',
+    value: 'vi'
+  },
+  {
+    label: 'English',
+    value: 'en'
   }
 ];
 

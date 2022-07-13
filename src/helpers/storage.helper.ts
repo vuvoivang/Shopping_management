@@ -1,5 +1,7 @@
 import { AppConstant } from '../constants/app.constant';
 
+// working with localStorage
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getState = (): { [x: string]: any } => {
   // get App state is stored in localStorage
   const stateStr = localStorage.getItem(AppConstant.storageKey.state);

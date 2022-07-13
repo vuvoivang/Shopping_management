@@ -68,7 +68,7 @@ module.exports = function (webpackEnv) {
     const loaders = [
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
-        loader: MiniCssExtractPlugin.loader,
+        loader: MiniCssExtractPlugin.loader, // gộp các file scss -> 1 file
         options: Object.assign({}, shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined)
       },
       {
@@ -314,6 +314,7 @@ module.exports = function (webpackEnv) {
             },
             // Process application JS with Babel.
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
+            // compile ts -> js.
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               include: paths.appSrc,
@@ -396,6 +397,7 @@ module.exports = function (webpackEnv) {
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
             // extensions .module.scss or .module.sass
+            // compile
             {
               test: sassRegex,
               exclude: sassModuleRegex,
@@ -463,7 +465,7 @@ module.exports = function (webpackEnv) {
             inject: true,
             template: paths.appHtml
           },
-          isEnvProduction
+          isEnvProduction // remove spaces, lines... concates all lines
             ? {
               minify: {
                 removeComments: true,
@@ -527,6 +529,7 @@ module.exports = function (webpackEnv) {
       // You can remove this if you don't use Moment.js:
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // TypeScript type checking
+      // Speeds up TypeScript type checking, use tsconfig
       useTypeScript &&
       new ForkTsCheckerWebpackPlugin({
         typescript: resolve.sync('typescript', {

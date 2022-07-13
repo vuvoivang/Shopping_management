@@ -21,12 +21,10 @@ describe('withLoading', () => {
 
   it('loading as expect', () => {
     const { wrapper } = setUp(mockStoreLoading);
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('Loading').exists()).toBeTruthy();
   });
   it('not loading as expect', () => {
     const { wrapper } = setUp(mockStoreNotLoading);
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('Loading').exists()).toBeFalsy();
   });
 });

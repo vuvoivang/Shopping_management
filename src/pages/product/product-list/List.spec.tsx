@@ -31,6 +31,5 @@ describe('<ProductList />', () => {
     await runAllPromises();
     wrapper.update();
     expect(wrapper.find('.c-product-item')).toHaveLength(productList.length);
-    expect(wrapper).toMatchSnapshot();
   });
 });

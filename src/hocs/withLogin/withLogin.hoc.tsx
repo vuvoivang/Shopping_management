@@ -1,11 +1,12 @@
 import { Redirect } from 'react-router-dom';
 import { AppConstant } from 'constants/app.constant';
 import { getState } from 'helpers/storage.helper';
-import Login from 'pages/login/Login.page';
 import React from 'react';
 import { useLocation } from 'react-router';
 import { displayToastify } from 'utilities/toastify/toastify.utility';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// bọc những component cần authentication
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const withLogin = WrappedComponent => (props: any) => {
   const location = useLocation();

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Demo: React.FC = () => {
   const [currentTab, setCurrentTab] = useState(DemoComponents[0].name);
-  const renderTabContent = () => {
+  const renderTabContent = () => { // Filter a current component, others will be unmounted
     const CurComponent = DemoComponents.filter(item => item.name === currentTab)[0].component;
     return <CurComponent />;
   };

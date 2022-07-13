@@ -50,6 +50,7 @@ class Timer extends Component {
     });
   };
   render() {
+    console.log('render');
     return (
       <div className="c-timer">
         You have visited this timer tab for{' '}

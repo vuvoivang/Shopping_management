@@ -64,7 +64,7 @@ checkBrowsers(paths.appPath, isInteractive)
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
     fs.emptyDirSync(paths.appBuild);
-    // Merge with the public folder
+    // Merge with the public folder to use assets...
     copyPublicFolder();
     // Start the webpack build
     return build(previousFileSizes);
@@ -129,7 +129,7 @@ function build(previousFileSizes) {
 
   let compiler = webpack(config);
   return new Promise((resolve, reject) => {
-    compiler.run((err, stats) => {
+    compiler.run((err, stats) => { // compile
       let messages;
       if (err) {
         if (!err.message) {
@@ -173,7 +173,7 @@ function build(previousFileSizes) {
         warnings: messages.warnings,
       };
       if (writeStatsJson) {
-        return bfj
+        return bfj // call webpack to get config
           .write(paths.appBuild + '/bundle-stats.json', stats.toJson())
           .then(() => resolve(resolveArgs))
           .catch(error => reject(new Error(error)));

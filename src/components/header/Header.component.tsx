@@ -5,7 +5,7 @@ import { Avatar, Menu, MenuItem, Tooltip } from '@material-ui/core';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { securityActions, securitySelector } from 'redux/security';
-import { RoutePathNavbar } from 'constants/app.constant';
+import { MenuItemsLanguage, RoutePathNavbar } from 'constants/app.constant';
 import { cartActions, cartSelector } from 'redux/cart';
 import { languageActions, languageSelector } from 'redux/language';
 import { FormattedMessage } from 'react-intl';
@@ -37,27 +37,6 @@ const Header: React.FC = () => {
     dispatch(cartActions.resetCart());
     history.go(0);
   };
-
-  const MenuItemsOptions = [
-    {
-      labelId: 'my_account',
-      handleFunc: handleViewMyAccount
-    },
-    {
-      labelId: 'log_out',
-      handleFunc: handleLogout
-    }
-  ];
-  const MenuItemsLanguage = [
-    {
-      label: 'Vietnamese',
-      value: 'vi'
-    },
-    {
-      label: 'English',
-      value: 'en'
-    }
-  ];
   const handleOpenLanguage = event => {
     setOpenLanguage(event.currentTarget);
   };
@@ -69,6 +48,16 @@ const Header: React.FC = () => {
     setOpenLanguage(null);
     dispatch(languageActions.setLocale(lang));
   }
+  const MenuItemsOptions = [
+    {
+      labelId: 'my_account',
+      handleFunc: handleViewMyAccount
+    },
+    {
+      labelId: 'log_out',
+      handleFunc: handleLogout
+    }
+  ];
   return (
     <header className="c-header">
       <div className="c-header__logo">

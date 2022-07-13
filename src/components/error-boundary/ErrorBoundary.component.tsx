@@ -5,7 +5,7 @@ interface ErrorBoundaryState {
   errorInfo: ErrorInfo;
 }
 
-class ErrorBoundary extends Component<{}, ErrorBoundaryState> {
+class ErrorBoundary extends Component<{}, ErrorBoundaryState> { // Bọc app và custom để hiện component lỗi
   state = { error: null, errorInfo: null };
   errorRef: React.RefObject<HTMLPreElement>;
   constructor(props) {

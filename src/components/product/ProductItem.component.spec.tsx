@@ -25,7 +25,6 @@ describe('<ProductItem />', () => {
 
   it('render as expect', () => {
     const { wrapper } = setUp();
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.c-product-item__card-image').exists()).toBeTruthy();
     expect(wrapper.find('.c-product-item__card-content').exists()).toBeTruthy();
     expect(

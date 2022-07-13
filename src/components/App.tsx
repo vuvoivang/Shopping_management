@@ -32,7 +32,7 @@ class App extends Component {
 
   initialize = () => {
     this.history = history; // browser history
-    this.store = configureStore(this.history);
+    this.store = configureStore(this.history); // history to track the changed state with location
   };
 
   render() {
@@ -41,6 +41,7 @@ class App extends Component {
     const appAuthRoutes = createAuthRoutes(getAuthRoutes());
     // Provider: use Store to connect
     // ConnectedIntlProvider: use multiLang
+    // ConnectedRouter: custom history và router reducer, giống BrowserRouter
     // HTMLHeadSEOComponent: add title for SEO
     // ErrorBoundary: component catch error & render
     // Suspense: use Lazy load & show loading if pending
@@ -50,6 +51,7 @@ class App extends Component {
         <ConnectedRouter history={this.history}>
           <ConnectedIntlProvider>
             <>
+              {/* SEO có thể ghi đề title  */}
               <HTMLHeadSEOComponent />
               <ErrorBoundary>
                 <Suspense fallback={<Loading />}>

@@ -16,7 +16,6 @@ describe('<About />', () => {
 
   it('render as expect', () => {
     const { wrapper } = setUp(storeWithEnglishLanguage);
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('.c-about').exists()).toBeTruthy();
     expect(wrapper.find('.c-about__image.u-border-radius--round').exists()).toBeTruthy();
     expect(wrapper.find('.c-about-me__link--blue').text()).toMatch('KMS Technology');

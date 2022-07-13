@@ -74,7 +74,7 @@ checkBrowsers(paths.appPath, isInteractive)
       devSocket,
       urls,
       useYarn,
-      useTypeScript,
+      useTypeScript, // compiler ts??
       webpack
     });
     // Load proxy config

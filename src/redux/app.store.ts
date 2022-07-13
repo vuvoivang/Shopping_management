@@ -25,6 +25,7 @@ const actionTypesWhitelist = [
   'cart/resetCart'
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const statesToBeStoredInLocalStorage: { stateKey?: (state: any) => void } = {
   // object state is stored, the corresponding key and satet from restore
   [AppConstant.redux.LANGUAGE_STATE]: languageActions.restoreLocale,
@@ -64,7 +65,7 @@ const storageMiddleware = ({ getState }) => next => action => {
   }
   return result; // hết middleware, chuyển qua next function
 };
-
+// use DevTools and middlewares
 export const configureStore = history => {
   const middlewares = [thunkMiddleware, routerMiddleware(history), storageMiddleware];
   if (process.env.NODE_ENV === 'development') {

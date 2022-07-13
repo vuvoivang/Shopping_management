@@ -52,10 +52,10 @@ class Cart extends Component<CartProps> {
 const mapStateToProps = state => ({
   cart: cartSelector.getCart(state)
 });
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({ // instead of this.props.dispatch
   handleCheckout: () => {
-    displayToastify('Check out successfully, please track the shipping process !!', 'success');
     dispatch(cartActions.checkout());
+    displayToastify('Check out successfully, please track the shipping process !!', 'success');
   }
 });
 

@@ -14,7 +14,7 @@ const LANGUAGES = {
 
 const DEFAULT_LOCALE = 'en';
 
-const getLanguageMessages = (locale = DEFAULT_LOCALE) => {
+const getLanguageMessages = (locale = DEFAULT_LOCALE) => { // Lấy locale hiện tại và load mảng các message tương ứng từ file .json
   const fallbackLocale = LANGUAGES[locale] ? locale : DEFAULT_LOCALE;
   return {
     locale: fallbackLocale,

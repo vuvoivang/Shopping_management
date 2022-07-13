@@ -51,7 +51,7 @@ export const mountWithProviderAndRouter = children => (store = getMockStore({}))
     </Provider>
   );
 };
-
+// Luôn có store, ít nhất có router
 export const mountWithProviderAndStore = (children, userType?: string, store?: { [key: string]: any }, middleware = []) => {
   let mockStore;
   if (!store) {
