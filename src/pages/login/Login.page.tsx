@@ -101,6 +101,12 @@ const Login: React.FC = () => {
     validateField(formValues, e.target.name);
   };
   useEffect(() => {
+    if (!isSubmit && loginInfo.user) {
+      displayToastify('You have already login!', 'success');
+      history.push(from || '/home');
+    }
+  }, []);
+  useEffect(() => {
     if (isSubmit) {
       if (loginInfo.user) {
         displayToastify('Login successfully!', 'success');
