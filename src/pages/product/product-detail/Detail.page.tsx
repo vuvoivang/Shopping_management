@@ -16,8 +16,8 @@ interface ParamTypes {
 
 const ProductDetail: React.FC = () => {
   const [product, setProduct] = useState<Product>();
-  const { productId } = useParams<ParamTypes>();
   const dispatch = useDispatch();
+  const { productId } = useParams<ParamTypes>();
   const fetchData = async id => {
     const productDetail = await fetchProductDetail(id);
     setProduct(productDetail);
@@ -35,6 +35,10 @@ const ProductDetail: React.FC = () => {
       }
     }
   }, []);
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(product);
+  }, [product]);
   const addToCart = () => {
     dispatch(cartActions.addToCart(product));
     displayToastify('Add to cart successfully!!!', 'success');

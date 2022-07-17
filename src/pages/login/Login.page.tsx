@@ -112,7 +112,7 @@ const Login: React.FC = () => {
         setIsSubmit(false);
       }
     }
-  });
+  }, [loginInfo]);
   return (
     <>
       <section className="c-login-form" id="section-c-login-form">

@@ -57,6 +57,7 @@ export const getInitialState = () => ({});
 
 const storageMiddleware = ({ getState }) => next => action => {
   // middleware storage khi có action đến
+  console.log(action);
   const result = next(action);
   if (actionTypesWhitelist.includes(action.type)) {
     // Nếu là 1 trong các action được liệt kê, thì lưu state vào localStorage

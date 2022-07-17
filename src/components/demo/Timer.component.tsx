@@ -20,6 +20,10 @@ class Timer extends Component {
       interval: setInterval(this.counter, 1000)
     };
   }
+  getDerivedStateFromProps(nextProps: Readonly<{}>, prevState: Readonly<{}>): Readonly<{}> {
+    console.log('getDerivedStateFromProps');
+    return null;
+  }
   componentDidMount() {
     // fetch api or sth...
     console.log('componentDidMount');
@@ -43,7 +47,7 @@ class Timer extends Component {
     console.log('componentWillUnmount');
     clearInterval(this.state.interval);
   }
-  counter= () => {
+  counter = () => {
     this.setState((prevState: State) => {
       if (prevState.seconds !== 59) return { ...prevState, seconds: prevState.seconds + 1 };
       return { ...prevState, seconds: 0, minutes: prevState.minutes + 1 };
